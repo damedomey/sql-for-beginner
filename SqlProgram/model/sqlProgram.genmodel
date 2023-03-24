@@ -7,7 +7,5 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>sqlProgram.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="SqlProgram" disposableProviderFactory="true" ecorePackage="sqlProgram.ecore#/">
-    <genClasses ecoreClass="sqlProgram.ecore#//SqlProgram"/>
-  </genPackages>
+  <genPackages prefix="SqlProgram" disposableProviderFactory="true" ecorePackage="sqlProgram.ecore#/"/>
 </genmodel:GenModel>
