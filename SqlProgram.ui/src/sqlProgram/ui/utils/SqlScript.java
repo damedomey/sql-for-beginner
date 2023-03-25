@@ -3,6 +3,7 @@ package sqlProgram.ui.utils;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
@@ -19,9 +20,57 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import sqlProgram.Clause;
+import sqlProgram.Column;
+import sqlProgram.Selection;
+import sqlProgram.Table;
+
 public abstract class SqlScript {
-	public static String fromTable() {
-		return "hello";
+	public static String fromSelection(Selection selection) {
+		StringBuilder script = new StringBuilder();
+		String selectRow = "SELECT ", fromRow = "FROM ", clauseRow = "";
+
+		for (Object object: selection.getObjects()) {
+			if (object instanceof Table) {
+				Table table = (Table) object;
+				
+				for (Column column: table.getColumns()) {
+					selectRow +=  selectRow == "SELECT " ? "":", ";
+					selectRow += table.getName() + "." + column.getName();
+				}
+				
+				fromRow +=  fromRow == "FROM " ? "":", ";
+				fromRow += table.getName();
+			}
+		}
+
+		for (Clause clause: selection.getClauses()) {
+			switch (clause.getName().trim().toLowerCase()) {
+			case "where":
+			case "group by":
+			case "having":
+			case "limit":
+			case "offset": {
+				clauseRow += clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
+				break;
+			}
+			case "and": {
+				clauseRow += "    AND " + clause.getBody() + "\n";
+				break;
+			}
+			default:
+				throw new IllegalArgumentException("Unexpected value for clause: " + clause.getName());
+			}
+		}
+		
+		script.append(selectRow)
+			.append("\n")
+			.append(fromRow)
+			.append("\n")
+			.append(clauseRow)
+			.append(";\n");
+		
+		return script.toString();
 	}
 	
 	/**
@@ -44,11 +93,12 @@ public abstract class SqlScript {
 	 */
 	public static void showSaveWindow(String title, String content) {
         JFrame fenetre = new JFrame(title);
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel etiquette = new JLabel("Contenu :");
+        // fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JLabel callToAction = new JLabel("Voulez-vous enregistrer le script dans un fichier ?");
 
         // Créer une zone de texte scrollable pour le contenu
         JTextArea zoneTexte = new JTextArea(content);
+        zoneTexte.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(zoneTexte);
         scrollPane.setPreferredSize(new Dimension(400, 200));
 
@@ -92,8 +142,8 @@ public abstract class SqlScript {
         panneauBoutons.add(boutonAnnuler);
 
         // Ajouter l'étiquette, la zone de texte scrollable et le panneau de boutons à la fenêtre
-        fenetre.add(etiquette, BorderLayout.NORTH);
-        fenetre.add(scrollPane, BorderLayout.CENTER);
+        fenetre.add(scrollPane, BorderLayout.NORTH);
+        fenetre.add(callToAction, BorderLayout.CENTER);
         fenetre.add(panneauBoutons, BorderLayout.SOUTH);
 
         // Afficher la fenêtre

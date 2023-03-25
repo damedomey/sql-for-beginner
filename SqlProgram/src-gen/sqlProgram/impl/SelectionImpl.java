@@ -22,21 +22,21 @@ import sqlProgram.SqlProgramPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sqlProgram.impl.SelectionImpl#getClause <em>Clause</em>}</li>
+ *   <li>{@link sqlProgram.impl.SelectionImpl#getClauses <em>Clauses</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SelectionImpl extends QueriesImpl implements Selection {
 	/**
-	 * The cached value of the '{@link #getClause() <em>Clause</em>}' containment reference list.
+	 * The cached value of the '{@link #getClauses() <em>Clauses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClause()
+	 * @see #getClauses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Clause> clause;
+	protected EList<Clause> clauses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,11 +62,11 @@ public class SelectionImpl extends QueriesImpl implements Selection {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Clause> getClause() {
-		if (clause == null) {
-			clause = new EObjectContainmentEList<Clause>(Clause.class, this, SqlProgramPackage.SELECTION__CLAUSE);
+	public EList<Clause> getClauses() {
+		if (clauses == null) {
+			clauses = new EObjectContainmentEList<Clause>(Clause.class, this, SqlProgramPackage.SELECTION__CLAUSES);
 		}
-		return clause;
+		return clauses;
 	}
 
 	/**
@@ -77,8 +77,8 @@ public class SelectionImpl extends QueriesImpl implements Selection {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case SqlProgramPackage.SELECTION__CLAUSE:
-			return ((InternalEList<?>) getClause()).basicRemove(otherEnd, msgs);
+		case SqlProgramPackage.SELECTION__CLAUSES:
+			return ((InternalEList<?>) getClauses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -91,8 +91,8 @@ public class SelectionImpl extends QueriesImpl implements Selection {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SqlProgramPackage.SELECTION__CLAUSE:
-			return getClause();
+		case SqlProgramPackage.SELECTION__CLAUSES:
+			return getClauses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,9 +106,9 @@ public class SelectionImpl extends QueriesImpl implements Selection {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SqlProgramPackage.SELECTION__CLAUSE:
-			getClause().clear();
-			getClause().addAll((Collection<? extends Clause>) newValue);
+		case SqlProgramPackage.SELECTION__CLAUSES:
+			getClauses().clear();
+			getClauses().addAll((Collection<? extends Clause>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +122,8 @@ public class SelectionImpl extends QueriesImpl implements Selection {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SqlProgramPackage.SELECTION__CLAUSE:
-			getClause().clear();
+		case SqlProgramPackage.SELECTION__CLAUSES:
+			getClauses().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -137,8 +137,8 @@ public class SelectionImpl extends QueriesImpl implements Selection {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SqlProgramPackage.SELECTION__CLAUSE:
-			return clause != null && !clause.isEmpty();
+		case SqlProgramPackage.SELECTION__CLAUSES:
+			return clauses != null && !clauses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

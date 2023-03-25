@@ -16,13 +16,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Queries/objects"/>
     </genClasses>
     <genClasses ecoreClass="sqlProgram.ecore#//Selection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Selection/clause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Selection/clauses"/>
     </genClasses>
     <genClasses ecoreClass="sqlProgram.ecore#//Objects">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//Objects/name"/>
     </genClasses>
     <genClasses ecoreClass="sqlProgram.ecore#//Table">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Table/column"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Table/columns"/>
     </genClasses>
     <genClasses ecoreClass="sqlProgram.ecore#//Column">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Column/type"/>

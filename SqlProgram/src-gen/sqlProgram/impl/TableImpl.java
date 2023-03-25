@@ -22,21 +22,21 @@ import sqlProgram.Table;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sqlProgram.impl.TableImpl#getColumn <em>Column</em>}</li>
+ *   <li>{@link sqlProgram.impl.TableImpl#getColumns <em>Columns</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TableImpl extends ObjectsImpl implements Table {
 	/**
-	 * The cached value of the '{@link #getColumn() <em>Column</em>}' containment reference list.
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getColumn()
+	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Column> column;
+	protected EList<Column> columns;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,11 +62,11 @@ public class TableImpl extends ObjectsImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Column> getColumn() {
-		if (column == null) {
-			column = new EObjectContainmentEList<Column>(Column.class, this, SqlProgramPackage.TABLE__COLUMN);
+	public EList<Column> getColumns() {
+		if (columns == null) {
+			columns = new EObjectContainmentEList<Column>(Column.class, this, SqlProgramPackage.TABLE__COLUMNS);
 		}
-		return column;
+		return columns;
 	}
 
 	/**
@@ -77,8 +77,8 @@ public class TableImpl extends ObjectsImpl implements Table {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case SqlProgramPackage.TABLE__COLUMN:
-			return ((InternalEList<?>) getColumn()).basicRemove(otherEnd, msgs);
+		case SqlProgramPackage.TABLE__COLUMNS:
+			return ((InternalEList<?>) getColumns()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -91,8 +91,8 @@ public class TableImpl extends ObjectsImpl implements Table {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SqlProgramPackage.TABLE__COLUMN:
-			return getColumn();
+		case SqlProgramPackage.TABLE__COLUMNS:
+			return getColumns();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,9 +106,9 @@ public class TableImpl extends ObjectsImpl implements Table {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SqlProgramPackage.TABLE__COLUMN:
-			getColumn().clear();
-			getColumn().addAll((Collection<? extends Column>) newValue);
+		case SqlProgramPackage.TABLE__COLUMNS:
+			getColumns().clear();
+			getColumns().addAll((Collection<? extends Column>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +122,8 @@ public class TableImpl extends ObjectsImpl implements Table {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SqlProgramPackage.TABLE__COLUMN:
-			getColumn().clear();
+		case SqlProgramPackage.TABLE__COLUMNS:
+			getColumns().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -137,8 +137,8 @@ public class TableImpl extends ObjectsImpl implements Table {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SqlProgramPackage.TABLE__COLUMN:
-			return column != null && !column.isEmpty();
+		case SqlProgramPackage.TABLE__COLUMNS:
+			return columns != null && !columns.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

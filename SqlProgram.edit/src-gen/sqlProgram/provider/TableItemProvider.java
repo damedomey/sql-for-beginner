@@ -59,7 +59,7 @@ public class TableItemProvider extends ObjectsItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SqlProgramPackage.Literals.TABLE__COLUMN);
+			childrenFeatures.add(SqlProgramPackage.Literals.TABLE__COLUMNS);
 		}
 		return childrenFeatures;
 	}
@@ -123,7 +123,7 @@ public class TableItemProvider extends ObjectsItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Table.class)) {
-		case SqlProgramPackage.TABLE__COLUMN:
+		case SqlProgramPackage.TABLE__COLUMNS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -141,7 +141,7 @@ public class TableItemProvider extends ObjectsItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.TABLE__COLUMN,
+		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.TABLE__COLUMNS,
 				SqlProgramFactory.eINSTANCE.createColumn()));
 	}
 

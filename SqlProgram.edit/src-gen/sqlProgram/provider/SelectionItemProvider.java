@@ -59,7 +59,7 @@ public class SelectionItemProvider extends QueriesItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SqlProgramPackage.Literals.SELECTION__CLAUSE);
+			childrenFeatures.add(SqlProgramPackage.Literals.SELECTION__CLAUSES);
 		}
 		return childrenFeatures;
 	}
@@ -121,7 +121,7 @@ public class SelectionItemProvider extends QueriesItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Selection.class)) {
-		case SqlProgramPackage.SELECTION__CLAUSE:
+		case SqlProgramPackage.SELECTION__CLAUSES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -139,7 +139,7 @@ public class SelectionItemProvider extends QueriesItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.SELECTION__CLAUSE,
+		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.SELECTION__CLAUSES,
 				SqlProgramFactory.eINSTANCE.createClause()));
 	}
 

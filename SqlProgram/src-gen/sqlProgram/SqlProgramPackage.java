@@ -150,13 +150,13 @@ public interface SqlProgramPackage extends EPackage {
 	int SELECTION__OBJECTS = QUERIES__OBJECTS;
 
 	/**
-	 * The feature id for the '<em><b>Clause</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTION__CLAUSE = QUERIES_FEATURE_COUNT + 0;
+	int SELECTION__CLAUSES = QUERIES_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Selection</em>' class.
@@ -233,13 +233,13 @@ public interface SqlProgramPackage extends EPackage {
 	int TABLE__NAME = OBJECTS__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Column</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__COLUMN = OBJECTS_FEATURE_COUNT + 0;
+	int TABLE__COLUMNS = OBJECTS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -478,15 +478,15 @@ public interface SqlProgramPackage extends EPackage {
 	EClass getSelection();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link sqlProgram.Selection#getClause <em>Clause</em>}'.
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Selection#getClauses <em>Clauses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Clause</em>'.
-	 * @see sqlProgram.Selection#getClause()
+	 * @return the meta object for the containment reference list '<em>Clauses</em>'.
+	 * @see sqlProgram.Selection#getClauses()
 	 * @see #getSelection()
 	 * @generated
 	 */
-	EReference getSelection_Clause();
+	EReference getSelection_Clauses();
 
 	/**
 	 * Returns the meta object for class '{@link sqlProgram.Objects <em>Objects</em>}'.
@@ -520,15 +520,15 @@ public interface SqlProgramPackage extends EPackage {
 	EClass getTable();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link sqlProgram.Table#getColumn <em>Column</em>}'.
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Table#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Column</em>'.
-	 * @see sqlProgram.Table#getColumn()
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see sqlProgram.Table#getColumns()
 	 * @see #getTable()
 	 * @generated
 	 */
-	EReference getTable_Column();
+	EReference getTable_Columns();
 
 	/**
 	 * Returns the meta object for class '{@link sqlProgram.Column <em>Column</em>}'.
@@ -695,12 +695,12 @@ public interface SqlProgramPackage extends EPackage {
 		EClass SELECTION = eINSTANCE.getSelection();
 
 		/**
-		 * The meta object literal for the '<em><b>Clause</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Clauses</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SELECTION__CLAUSE = eINSTANCE.getSelection_Clause();
+		EReference SELECTION__CLAUSES = eINSTANCE.getSelection_Clauses();
 
 		/**
 		 * The meta object literal for the '{@link sqlProgram.impl.ObjectsImpl <em>Objects</em>}' class.
@@ -731,12 +731,12 @@ public interface SqlProgramPackage extends EPackage {
 		EClass TABLE = eINSTANCE.getTable();
 
 		/**
-		 * The meta object literal for the '<em><b>Column</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TABLE__COLUMN = eINSTANCE.getTable_Column();
+		EReference TABLE__COLUMNS = eINSTANCE.getTable_Columns();
 
 		/**
 		 * The meta object literal for the '{@link sqlProgram.impl.ColumnImpl <em>Column</em>}' class.

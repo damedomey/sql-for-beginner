@@ -205,7 +205,7 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSelection_Clause() {
+	public EReference getSelection_Clauses() {
 		return (EReference) selectionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -241,7 +241,7 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTable_Column() {
+	public EReference getTable_Columns() {
 		return (EReference) tableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -362,13 +362,13 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		createEReference(queriesEClass, QUERIES__OBJECTS);
 
 		selectionEClass = createEClass(SELECTION);
-		createEReference(selectionEClass, SELECTION__CLAUSE);
+		createEReference(selectionEClass, SELECTION__CLAUSES);
 
 		objectsEClass = createEClass(OBJECTS);
 		createEAttribute(objectsEClass, OBJECTS__NAME);
 
 		tableEClass = createEClass(TABLE);
-		createEReference(tableEClass, TABLE__COLUMN);
+		createEReference(tableEClass, TABLE__COLUMNS);
 
 		columnEClass = createEClass(COLUMN);
 		createEReference(columnEClass, COLUMN__TYPE);
@@ -431,7 +431,7 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 
 		initEClass(selectionEClass, Selection.class, "Selection", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSelection_Clause(), this.getClause(), null, "clause", null, 0, -1, Selection.class,
+		initEReference(getSelection_Clauses(), this.getClause(), null, "clauses", null, 0, -1, Selection.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -440,7 +440,7 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTable_Column(), this.getColumn(), null, "column", null, 0, -1, Table.class, !IS_TRANSIENT,
+		initEReference(getTable_Columns(), this.getColumn(), null, "columns", null, 0, -1, Table.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
