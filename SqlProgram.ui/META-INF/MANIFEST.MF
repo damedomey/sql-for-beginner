@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: SqlProgram.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ SqlProgram;bundle-version="0.1.0"
+Automatic-Module-Name: SqlProgram.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-17

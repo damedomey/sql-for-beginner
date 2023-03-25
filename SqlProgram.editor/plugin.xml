@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated sqlProgram -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="sqlProgram.presentation.SqlProgramModelWizardID"
+            name="%_UI_SqlProgramModelWizard_label"
+            class="sqlProgram.presentation.SqlProgramModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SqlProgramModelFile.gif">
+         <description>%_UI_SqlProgramModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated sqlProgram -->
+      <editor
+            id="sqlProgram.presentation.SqlProgramEditorID"
+            name="%_UI_SqlProgramEditor_label"
+            icon="icons/full/obj16/SqlProgramModelFile.gif"
+            extensions="sqlprogram"
+            class="sqlProgram.presentation.SqlProgramEditor"
+            contributorClass="sqlProgram.presentation.SqlProgramActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
