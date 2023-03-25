@@ -12,5 +12,6 @@
         <type href="file:/media/patch/A4B4DEDAB4DEADD47/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.0"/>
       </column>
     </objects>
+    <clause name="Where" body="age > 10"/>
   </queries>
 </sqlProgram:SqlProgram>
