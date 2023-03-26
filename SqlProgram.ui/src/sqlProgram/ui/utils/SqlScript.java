@@ -22,6 +22,7 @@ import javax.swing.JTextArea;
 
 import sqlProgram.Clause;
 import sqlProgram.Column;
+import sqlProgram.Constaint;
 import sqlProgram.Creation;
 import sqlProgram.Selection;
 import sqlProgram.Table;
@@ -76,6 +77,54 @@ public abstract class SqlScript {
 			.append("\n")
 			.append(clauseRow)
 			.append(";\n");
+		
+		return script.toString();
+	}
+	
+	/**
+	 * Generate the script corresponding to a [creation]
+	 * @param creation
+	 * @return
+	 */
+	
+	public static String fromCreation(Creation creation) {
+		StringBuilder script = new StringBuilder();
+		
+		script.append("CREATE ");
+		
+		switch (creation.getType().toLowerCase()) {
+		case "table": {
+			script.append("TABLE ");
+			
+			for (Object object: creation.getObjects()) {
+				if (object instanceof Table) {
+					Table table = (Table) object;
+					script.append(table.getName())
+						.append("(\n");
+					
+					for (Column column: table.getColumns()) {
+						// TODO: add column list
+					}
+					
+					break; // A creation can't concern more than 1 table due to possible constraints
+				}
+			}
+			
+			for (Constaint constraint: creation.getConstaints()) {
+				// TODO: add constraint
+			}
+			
+			script.append("\n);\n");
+			break;
+		}
+		case "index": {
+			// TODO: Generate script for index creation
+			break;
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + creation.getType());
+		}
+		
 		
 		return script.toString();
 	}
