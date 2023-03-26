@@ -47,4 +47,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="clauses" upperBound="-1"
         eType="#//Clause" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Insertion" eSuperTypes="#//Queries"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Delete" eSuperTypes="#//Queries">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clauses" upperBound="-1"
+        eType="#//Clause" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

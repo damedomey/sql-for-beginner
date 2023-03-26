@@ -13,6 +13,8 @@ import sqlProgram.Clause;
 import sqlProgram.Column;
 import sqlProgram.Constaint;
 import sqlProgram.Creation;
+import sqlProgram.Delete;
+import sqlProgram.Insertion;
 import sqlProgram.Library;
 import sqlProgram.Objects;
 import sqlProgram.Queries;
@@ -114,6 +116,20 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * @generated
 	 */
 	private EClass updateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass insertionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass deleteEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -418,6 +434,33 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getInsertion() {
+		return insertionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDelete() {
+		return deleteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDelete_Clauses() {
+		return (EReference) deleteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SqlProgramFactory getSqlProgramFactory() {
 		return (SqlProgramFactory) getEFactoryInstance();
 	}
@@ -479,6 +522,11 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 
 		updateEClass = createEClass(UPDATE);
 		createEReference(updateEClass, UPDATE__CLAUSES);
+
+		insertionEClass = createEClass(INSERTION);
+
+		deleteEClass = createEClass(DELETE);
+		createEReference(deleteEClass, DELETE__CLAUSES);
 	}
 
 	/**
@@ -515,6 +563,8 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		columnEClass.getESuperTypes().add(this.getObjects());
 		creationEClass.getESuperTypes().add(this.getQueries());
 		updateEClass.getESuperTypes().add(this.getQueries());
+		insertionEClass.getESuperTypes().add(this.getQueries());
+		deleteEClass.getESuperTypes().add(this.getQueries());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sqlProgramEClass, SqlProgram.class, "SqlProgram", !IS_ABSTRACT, !IS_INTERFACE,
@@ -578,6 +628,14 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 
 		initEClass(updateEClass, Update.class, "Update", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUpdate_Clauses(), this.getClause(), null, "clauses", null, 0, -1, Update.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(insertionEClass, Insertion.class, "Insertion", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(deleteEClass, Delete.class, "Delete", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDelete_Clauses(), this.getClause(), null, "clauses", null, 0, -1, Delete.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 

@@ -47,5 +47,9 @@
     <genClasses ecoreClass="sqlProgram.ecore#//Update">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Update/clauses"/>
     </genClasses>
+    <genClasses ecoreClass="sqlProgram.ecore#//Insertion"/>
+    <genClasses ecoreClass="sqlProgram.ecore#//Delete">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Delete/clauses"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -8,38 +8,29 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import sqlProgram.SqlProgram;
+import sqlProgram.Delete;
 import sqlProgram.SqlProgramFactory;
 import sqlProgram.SqlProgramPackage;
 
 /**
- * This is the item provider adapter for a {@link sqlProgram.SqlProgram} object.
+ * This is the item provider adapter for a {@link sqlProgram.Delete} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SqlProgramItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DeleteItemProvider extends QueriesItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SqlProgramItemProvider(AdapterFactory adapterFactory) {
+	public DeleteItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,7 +61,7 @@ public class SqlProgramItemProvider extends ItemProviderAdapter implements IEdit
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SqlProgramPackage.Literals.SQL_PROGRAM__QUERIES);
+			childrenFeatures.add(SqlProgramPackage.Literals.DELETE__CLAUSES);
 		}
 		return childrenFeatures;
 	}
@@ -89,14 +80,14 @@ public class SqlProgramItemProvider extends ItemProviderAdapter implements IEdit
 	}
 
 	/**
-	 * This returns SqlProgram.gif.
+	 * This returns Delete.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SqlProgram"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Delete"));
 	}
 
 	/**
@@ -117,7 +108,7 @@ public class SqlProgramItemProvider extends ItemProviderAdapter implements IEdit
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SqlProgram_type");
+		return getString("_UI_Delete_type");
 	}
 
 	/**
@@ -131,8 +122,8 @@ public class SqlProgramItemProvider extends ItemProviderAdapter implements IEdit
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SqlProgram.class)) {
-		case SqlProgramPackage.SQL_PROGRAM__QUERIES:
+		switch (notification.getFeatureID(Delete.class)) {
+		case SqlProgramPackage.DELETE__CLAUSES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -150,31 +141,8 @@ public class SqlProgramItemProvider extends ItemProviderAdapter implements IEdit
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.SQL_PROGRAM__QUERIES,
-				SqlProgramFactory.eINSTANCE.createSelection()));
-
-		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.SQL_PROGRAM__QUERIES,
-				SqlProgramFactory.eINSTANCE.createCreation()));
-
-		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.SQL_PROGRAM__QUERIES,
-				SqlProgramFactory.eINSTANCE.createUpdate()));
-
-		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.SQL_PROGRAM__QUERIES,
-				SqlProgramFactory.eINSTANCE.createInsertion()));
-
-		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.SQL_PROGRAM__QUERIES,
-				SqlProgramFactory.eINSTANCE.createDelete()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return SqlProgramEditPlugin.INSTANCE;
+		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.DELETE__CLAUSES,
+				SqlProgramFactory.eINSTANCE.createClause()));
 	}
 
 }

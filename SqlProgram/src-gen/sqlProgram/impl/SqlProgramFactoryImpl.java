@@ -76,6 +76,10 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 			return createConstaint();
 		case SqlProgramPackage.UPDATE:
 			return createUpdate();
+		case SqlProgramPackage.INSERTION:
+			return createInsertion();
+		case SqlProgramPackage.DELETE:
+			return createDelete();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +183,26 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 	public Update createUpdate() {
 		UpdateImpl update = new UpdateImpl();
 		return update;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Insertion createInsertion() {
+		InsertionImpl insertion = new InsertionImpl();
+		return insertion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Delete createDelete() {
+		DeleteImpl delete = new DeleteImpl();
+		return delete;
 	}
 
 	/**

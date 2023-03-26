@@ -564,6 +564,89 @@ public interface SqlProgramPackage extends EPackage {
 	int UPDATE_OPERATION_COUNT = QUERIES_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link sqlProgram.impl.InsertionImpl <em>Insertion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.InsertionImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getInsertion()
+	 * @generated
+	 */
+	int INSERTION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSERTION__OBJECTS = QUERIES__OBJECTS;
+
+	/**
+	 * The number of structural features of the '<em>Insertion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSERTION_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Insertion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSERTION_OPERATION_COUNT = QUERIES_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.DeleteImpl <em>Delete</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.DeleteImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getDelete()
+	 * @generated
+	 */
+	int DELETE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE__OBJECTS = QUERIES__OBJECTS;
+
+	/**
+	 * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE__CLAUSES = QUERIES_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Delete</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Delete</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE_OPERATION_COUNT = QUERIES_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link sqlProgram.SqlProgram <em>Sql Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -838,6 +921,37 @@ public interface SqlProgramPackage extends EPackage {
 	EReference getUpdate_Clauses();
 
 	/**
+	 * Returns the meta object for class '{@link sqlProgram.Insertion <em>Insertion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Insertion</em>'.
+	 * @see sqlProgram.Insertion
+	 * @generated
+	 */
+	EClass getInsertion();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.Delete <em>Delete</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Delete</em>'.
+	 * @see sqlProgram.Delete
+	 * @generated
+	 */
+	EClass getDelete();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Delete#getClauses <em>Clauses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Clauses</em>'.
+	 * @see sqlProgram.Delete#getClauses()
+	 * @see #getDelete()
+	 * @generated
+	 */
+	EReference getDelete_Clauses();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1091,6 +1205,34 @@ public interface SqlProgramPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UPDATE__CLAUSES = eINSTANCE.getUpdate_Clauses();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.InsertionImpl <em>Insertion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.InsertionImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getInsertion()
+		 * @generated
+		 */
+		EClass INSERTION = eINSTANCE.getInsertion();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.DeleteImpl <em>Delete</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.DeleteImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getDelete()
+		 * @generated
+		 */
+		EClass DELETE = eINSTANCE.getDelete();
+
+		/**
+		 * The meta object literal for the '<em><b>Clauses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DELETE__CLAUSES = eINSTANCE.getDelete_Clauses();
 
 	}
 

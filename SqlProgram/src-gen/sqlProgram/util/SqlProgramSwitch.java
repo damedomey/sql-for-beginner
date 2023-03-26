@@ -160,6 +160,24 @@ public class SqlProgramSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case SqlProgramPackage.INSERTION: {
+			Insertion insertion = (Insertion) theEObject;
+			T result = caseInsertion(insertion);
+			if (result == null)
+				result = caseQueries(insertion);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SqlProgramPackage.DELETE: {
+			Delete delete = (Delete) theEObject;
+			T result = caseDelete(delete);
+			if (result == null)
+				result = caseQueries(delete);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -342,6 +360,36 @@ public class SqlProgramSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUpdate(Update object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Insertion</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Insertion</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInsertion(Insertion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Delete</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Delete</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDelete(Delete object) {
 		return null;
 	}
 
