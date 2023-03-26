@@ -14,5 +14,6 @@
     </objects>
     <clauses name="Where" body="age > 10"/>
     <clauses name="And" body="name = 'david'"/>
+    <clauses name="Or" body="name = 'mo'"/>
   </queries>
 </sqlProgram:SqlProgram>

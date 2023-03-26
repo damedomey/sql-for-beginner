@@ -37,5 +37,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//Clause/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//Clause/body"/>
     </genClasses>
+    <genClasses ecoreClass="sqlProgram.ecore#//Creation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Creation/constaints"/>
+    </genClasses>
+    <genClasses ecoreClass="sqlProgram.ecore#//Constaint"/>
   </genPackages>
 </genmodel:GenModel>
