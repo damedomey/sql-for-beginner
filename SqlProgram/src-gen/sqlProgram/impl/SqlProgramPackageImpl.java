@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import sqlProgram.Clause;
 import sqlProgram.Column;
+import sqlProgram.Constaint;
+import sqlProgram.Creation;
 import sqlProgram.Library;
 import sqlProgram.Objects;
 import sqlProgram.Queries;
@@ -90,6 +92,20 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * @generated
 	 */
 	private EClass clauseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass creationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constaintEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -331,6 +347,33 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCreation() {
+		return creationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreation_Constaints() {
+		return (EReference) creationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConstaint() {
+		return constaintEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SqlProgramFactory getSqlProgramFactory() {
 		return (SqlProgramFactory) getEFactoryInstance();
 	}
@@ -382,6 +425,11 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		clauseEClass = createEClass(CLAUSE);
 		createEAttribute(clauseEClass, CLAUSE__NAME);
 		createEAttribute(clauseEClass, CLAUSE__BODY);
+
+		creationEClass = createEClass(CREATION);
+		createEReference(creationEClass, CREATION__CONSTAINTS);
+
+		constaintEClass = createEClass(CONSTAINT);
 	}
 
 	/**
@@ -416,6 +464,7 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		selectionEClass.getESuperTypes().add(this.getQueries());
 		tableEClass.getESuperTypes().add(this.getObjects());
 		columnEClass.getESuperTypes().add(this.getObjects());
+		creationEClass.getESuperTypes().add(this.getQueries());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sqlProgramEClass, SqlProgram.class, "SqlProgram", !IS_ABSTRACT, !IS_INTERFACE,
@@ -463,6 +512,15 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClause_Body(), ecorePackage.getEString(), "body", null, 1, 1, Clause.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(creationEClass, Creation.class, "Creation", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCreation_Constaints(), this.getConstaint(), null, "constaints", null, 0, -1, Creation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(constaintEClass, Constaint.class, "Constaint", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

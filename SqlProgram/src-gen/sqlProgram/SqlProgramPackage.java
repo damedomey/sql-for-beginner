@@ -426,6 +426,80 @@ public interface SqlProgramPackage extends EPackage {
 	int CLAUSE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link sqlProgram.impl.CreationImpl <em>Creation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.CreationImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getCreation()
+	 * @generated
+	 */
+	int CREATION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATION__OBJECTS = QUERIES__OBJECTS;
+
+	/**
+	 * The feature id for the '<em><b>Constaints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATION__CONSTAINTS = QUERIES_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Creation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATION_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Creation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATION_OPERATION_COUNT = QUERIES_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.ConstaintImpl <em>Constaint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.ConstaintImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getConstaint()
+	 * @generated
+	 */
+	int CONSTAINT = 10;
+
+	/**
+	 * The number of structural features of the '<em>Constaint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTAINT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Constaint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTAINT_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link sqlProgram.SqlProgram <em>Sql Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -626,6 +700,37 @@ public interface SqlProgramPackage extends EPackage {
 	EAttribute getClause_Body();
 
 	/**
+	 * Returns the meta object for class '{@link sqlProgram.Creation <em>Creation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Creation</em>'.
+	 * @see sqlProgram.Creation
+	 * @generated
+	 */
+	EClass getCreation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Creation#getConstaints <em>Constaints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Constaints</em>'.
+	 * @see sqlProgram.Creation#getConstaints()
+	 * @see #getCreation()
+	 * @generated
+	 */
+	EReference getCreation_Constaints();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.Constaint <em>Constaint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Constaint</em>'.
+	 * @see sqlProgram.Constaint
+	 * @generated
+	 */
+	EClass getConstaint();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -817,6 +922,34 @@ public interface SqlProgramPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CLAUSE__BODY = eINSTANCE.getClause_Body();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.CreationImpl <em>Creation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.CreationImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getCreation()
+		 * @generated
+		 */
+		EClass CREATION = eINSTANCE.getCreation();
+
+		/**
+		 * The meta object literal for the '<em><b>Constaints</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CREATION__CONSTAINTS = eINSTANCE.getCreation_Constaints();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.ConstaintImpl <em>Constaint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.ConstaintImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getConstaint()
+		 * @generated
+		 */
+		EClass CONSTAINT = eINSTANCE.getConstaint();
 
 	}
 

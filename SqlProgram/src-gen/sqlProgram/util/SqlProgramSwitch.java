@@ -135,6 +135,22 @@ public class SqlProgramSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case SqlProgramPackage.CREATION: {
+			Creation creation = (Creation) theEObject;
+			T result = caseCreation(creation);
+			if (result == null)
+				result = caseQueries(creation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SqlProgramPackage.CONSTAINT: {
+			Constaint constaint = (Constaint) theEObject;
+			T result = caseConstaint(constaint);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -272,6 +288,36 @@ public class SqlProgramSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseClause(Clause object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Creation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Creation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCreation(Creation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constaint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constaint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstaint(Constaint object) {
 		return null;
 	}
 

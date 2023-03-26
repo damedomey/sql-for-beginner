@@ -234,6 +234,52 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link sqlProgram.Creation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CreationItemProvider creationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sqlProgram.Creation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCreationAdapter() {
+		if (creationItemProvider == null) {
+			creationItemProvider = new CreationItemProvider(this);
+		}
+
+		return creationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sqlProgram.Constaint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstaintItemProvider constaintItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sqlProgram.Constaint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstaintAdapter() {
+		if (constaintItemProvider == null) {
+			constaintItemProvider = new ConstaintItemProvider(this);
+		}
+
+		return constaintItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -346,6 +392,10 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 			libraryItemProvider.dispose();
 		if (clauseItemProvider != null)
 			clauseItemProvider.dispose();
+		if (creationItemProvider != null)
+			creationItemProvider.dispose();
+		if (constaintItemProvider != null)
+			constaintItemProvider.dispose();
 	}
 
 }

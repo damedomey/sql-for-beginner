@@ -85,6 +85,24 @@ public interface SqlProgramFactory extends EFactory {
 	Clause createClause();
 
 	/**
+	 * Returns a new object of class '<em>Creation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Creation</em>'.
+	 * @generated
+	 */
+	Creation createCreation();
+
+	/**
+	 * Returns a new object of class '<em>Constaint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Constaint</em>'.
+	 * @generated
+	 */
+	Constaint createConstaint();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

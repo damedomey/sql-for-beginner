@@ -70,6 +70,10 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 			return createLibrary();
 		case SqlProgramPackage.CLAUSE:
 			return createClause();
+		case SqlProgramPackage.CREATION:
+			return createCreation();
+		case SqlProgramPackage.CONSTAINT:
+			return createConstaint();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -143,6 +147,26 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 	public Clause createClause() {
 		ClauseImpl clause = new ClauseImpl();
 		return clause;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Creation createCreation() {
+		CreationImpl creation = new CreationImpl();
+		return creation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Constaint createConstaint() {
+		ConstaintImpl constaint = new ConstaintImpl();
+		return constaint;
 	}
 
 	/**

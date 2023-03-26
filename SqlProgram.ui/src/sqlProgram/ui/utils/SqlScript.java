@@ -22,10 +22,16 @@ import javax.swing.JTextArea;
 
 import sqlProgram.Clause;
 import sqlProgram.Column;
+import sqlProgram.Creation;
 import sqlProgram.Selection;
 import sqlProgram.Table;
 
 public abstract class SqlScript {
+	/**
+	 * Generate the script corresponding to a [selection]
+	 * @param selection
+	 * @return the script
+	 */
 	public static String fromSelection(Selection selection) {
 		StringBuilder script = new StringBuilder();
 		String selectRow = "SELECT ", fromRow = "FROM ", clauseRow = "";
@@ -54,8 +60,9 @@ public abstract class SqlScript {
 				clauseRow += clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
 				break;
 			}
-			case "and": {
-				clauseRow += "    AND " + clause.getBody() + "\n";
+			case "and":
+			case "or": {
+				clauseRow += "    " + clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
 				break;
 			}
 			default:

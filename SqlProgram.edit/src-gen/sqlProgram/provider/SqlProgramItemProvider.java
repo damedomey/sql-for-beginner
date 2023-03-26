@@ -152,6 +152,9 @@ public class SqlProgramItemProvider extends ItemProviderAdapter implements IEdit
 
 		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.SQL_PROGRAM__QUERIES,
 				SqlProgramFactory.eINSTANCE.createSelection()));
+
+		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.SQL_PROGRAM__QUERIES,
+				SqlProgramFactory.eINSTANCE.createCreation()));
 	}
 
 	/**
