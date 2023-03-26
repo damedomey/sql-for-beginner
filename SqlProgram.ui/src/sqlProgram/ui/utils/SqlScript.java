@@ -80,6 +80,25 @@ public abstract class SqlScript {
 		return script.toString();
 	}
 	
+	public static String fromCreation(Creation creation) {
+		StringBuilder script = new StringBuilder();
+		
+		for (Object object: creation.getObjects()) {
+			if (object instanceof Table) {
+				Table table = (Table) object;
+				
+				for (Column column: table.getColumns()) {
+					
+				}
+				
+				
+				break; // A creation can't concern more than 1 table due to possible constraints
+			}
+		}
+		
+		return script.toString();
+	}
+	
 	/**
 	 * Write [content] in the given [file]
 	 * @param file
