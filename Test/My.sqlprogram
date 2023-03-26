@@ -29,4 +29,9 @@
     <clauses name="And" body="name = 'david'"/>
     <clauses name="Or" body="name = 'mo'"/>
   </queries>
+  <queries xsi:type="sqlProgram:Update">
+    <objects xsi:type="sqlProgram:Table" name="Person"/>
+    <clauses name="Set" body="nom = &quot;AMEDOMEY"/>
+    <clauses name="Where" body="prenom = 'david'"/>
+  </queries>
 </sqlProgram:SqlProgram>

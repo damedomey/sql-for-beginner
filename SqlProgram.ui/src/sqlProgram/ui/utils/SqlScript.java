@@ -26,6 +26,7 @@ import sqlProgram.Constaint;
 import sqlProgram.Creation;
 import sqlProgram.Selection;
 import sqlProgram.Table;
+import sqlProgram.Update;
 
 public abstract class SqlScript {
 	/**
@@ -129,6 +130,43 @@ public abstract class SqlScript {
 		return script.toString();
 	}
 	
+	public static String fromUpdate(Update update) {
+		StringBuilder script = new StringBuilder();
+	    String setRow = "", whereRow = "";
+
+	    for (Object object: update.getObjects()) {
+			if (object instanceof Table) {
+				Table table = (Table) object;
+				script.append("UPDATE ")
+					.append(table.getName())
+					.append("\n");
+				break; // A creation can't concern more than 1 table due to possible constraints
+			}
+		}
+	    
+	    for (Clause clause: update.getClauses()) {
+			switch (clause.getName().trim().toLowerCase()) {
+			case "set":
+			case "where": {
+				whereRow += clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
+				break;
+			}
+			case "and":
+			case "or": {
+				whereRow += "    " + clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
+				break;
+			}
+			default:
+				throw new IllegalArgumentException("Unexpected value for clause: " + clause.getName());
+			}
+		}
+
+	    script.append(setRow)
+	        .append(whereRow)
+	        .append(";\n");
+
+	    return script.toString();
+	}
 	/**
 	 * Write [content] in the given [file]
 	 * @param file

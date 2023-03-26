@@ -1,4 +1,4 @@
-# Programme SQL en Xtend
+# Programme SQL avec EMF (Eclipse Modeling Framework)
 
 Ce programme est un outil de développement pour les **software engineers**. C'est destiné à la génération de code à partir de ... <br>
 Il definit une syntaxe concrête relativement simple.
@@ -21,6 +21,7 @@ Le menu du plugin est affiché lorsqu'on clique sur **SqlProgram**. Le nom du me
 - [ ] Requête de création
   - [ ] de table
   - [ ] d'index
+- [ ] Faire une requête d'insertion
 - [ ] Faire une requête de mise à jour simple
 - [ ] Faire une requête de suppression
   - [ ] de ligne dans une table

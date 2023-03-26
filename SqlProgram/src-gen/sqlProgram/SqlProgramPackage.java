@@ -491,13 +491,22 @@ public interface SqlProgramPackage extends EPackage {
 	int CONSTAINT = 10;
 
 	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTAINT__BODY = 0;
+
+	/**
 	 * The number of structural features of the '<em>Constaint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTAINT_FEATURE_COUNT = 0;
+	int CONSTAINT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Constaint</em>' class.
@@ -507,6 +516,52 @@ public interface SqlProgramPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTAINT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.UpdateImpl <em>Update</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.UpdateImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getUpdate()
+	 * @generated
+	 */
+	int UPDATE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE__OBJECTS = QUERIES__OBJECTS;
+
+	/**
+	 * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE__CLAUSES = QUERIES_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Update</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Update</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_OPERATION_COUNT = QUERIES_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link sqlProgram.SqlProgram <em>Sql Program</em>}'.
@@ -751,6 +806,38 @@ public interface SqlProgramPackage extends EPackage {
 	EClass getConstaint();
 
 	/**
+	 * Returns the meta object for the attribute '{@link sqlProgram.Constaint#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Body</em>'.
+	 * @see sqlProgram.Constaint#getBody()
+	 * @see #getConstaint()
+	 * @generated
+	 */
+	EAttribute getConstaint_Body();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.Update <em>Update</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Update</em>'.
+	 * @see sqlProgram.Update
+	 * @generated
+	 */
+	EClass getUpdate();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Update#getClauses <em>Clauses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Clauses</em>'.
+	 * @see sqlProgram.Update#getClauses()
+	 * @see #getUpdate()
+	 * @generated
+	 */
+	EReference getUpdate_Clauses();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -978,6 +1065,32 @@ public interface SqlProgramPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONSTAINT = eINSTANCE.getConstaint();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTAINT__BODY = eINSTANCE.getConstaint_Body();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.UpdateImpl <em>Update</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.UpdateImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getUpdate()
+		 * @generated
+		 */
+		EClass UPDATE = eINSTANCE.getUpdate();
+
+		/**
+		 * The meta object literal for the '<em><b>Clauses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UPDATE__CLAUSES = eINSTANCE.getUpdate_Clauses();
 
 	}
 

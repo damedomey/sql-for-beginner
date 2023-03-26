@@ -12,6 +12,7 @@ import sqlProgram.Creation;
 import sqlProgram.Queries;
 import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
+import sqlProgram.Update;
 import sqlProgram.ui.utils.SqlScript;
 
 public class GenerateSqlFileHandler extends AbstractHandler implements IHandler {
@@ -42,6 +43,8 @@ public class GenerateSqlFileHandler extends AbstractHandler implements IHandler 
 	        			sqlScript.append(SqlScript.fromSelection((Selection) query));
 	        		} else if (query instanceof Creation){
 	        			sqlScript.append(SqlScript.fromCreation((Creation) query));
+	        		} else if (query instanceof Update) {
+	        			sqlScript.append(SqlScript.fromUpdate((Update) query));
 	        		}
 	        	}
 	        	

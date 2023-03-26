@@ -151,6 +151,15 @@ public class SqlProgramSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case SqlProgramPackage.UPDATE: {
+			Update update = (Update) theEObject;
+			T result = caseUpdate(update);
+			if (result == null)
+				result = caseQueries(update);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -318,6 +327,21 @@ public class SqlProgramSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConstaint(Constaint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Update</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Update</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUpdate(Update object) {
 		return null;
 	}
 

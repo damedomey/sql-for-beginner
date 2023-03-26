@@ -280,6 +280,29 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link sqlProgram.Update} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UpdateItemProvider updateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sqlProgram.Update}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUpdateAdapter() {
+		if (updateItemProvider == null) {
+			updateItemProvider = new UpdateItemProvider(this);
+		}
+
+		return updateItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,6 +419,8 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 			creationItemProvider.dispose();
 		if (constaintItemProvider != null)
 			constaintItemProvider.dispose();
+		if (updateItemProvider != null)
+			updateItemProvider.dispose();
 	}
 
 }

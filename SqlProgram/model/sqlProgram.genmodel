@@ -41,6 +41,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Creation/constaints"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//Creation/type"/>
     </genClasses>
-    <genClasses ecoreClass="sqlProgram.ecore#//Constaint"/>
+    <genClasses ecoreClass="sqlProgram.ecore#//Constaint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//Constaint/body"/>
+    </genClasses>
+    <genClasses ecoreClass="sqlProgram.ecore#//Update">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Update/clauses"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

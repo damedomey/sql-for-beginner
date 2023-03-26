@@ -74,6 +74,8 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 			return createCreation();
 		case SqlProgramPackage.CONSTAINT:
 			return createConstaint();
+		case SqlProgramPackage.UPDATE:
+			return createUpdate();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -167,6 +169,16 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 	public Constaint createConstaint() {
 		ConstaintImpl constaint = new ConstaintImpl();
 		return constaint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Update createUpdate() {
+		UpdateImpl update = new UpdateImpl();
+		return update;
 	}
 
 	/**
