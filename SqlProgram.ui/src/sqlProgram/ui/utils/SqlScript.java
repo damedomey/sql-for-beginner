@@ -24,6 +24,7 @@ import sqlProgram.Clause;
 import sqlProgram.Column;
 import sqlProgram.Constaint;
 import sqlProgram.Creation;
+import sqlProgram.Delete;
 import sqlProgram.Selection;
 import sqlProgram.Table;
 import sqlProgram.Update;
@@ -167,6 +168,43 @@ public abstract class SqlScript {
 
 	    return script.toString();
 	}
+	
+	public static String fromDelete(Delete delete) {
+		StringBuilder script = new StringBuilder();
+		
+		for (Object object: delete.getObjects()) {
+			if (object instanceof Table) {
+				Table table = (Table) object;
+				script.append("DELETE FROM ")
+					.append(table.getName())
+					.append("\n");
+				break; // A creation can't concern more than 1 table due to possible constraints
+			}
+		}
+		
+		for (Clause clause: delete.getClauses()) {
+			switch (clause.getName().trim().toLowerCase()) {
+			case "where":
+			case "and":
+			case "or": {
+				if (clause.getName().trim().toLowerCase() != "where" ) {
+					script.append("    ");
+				}
+				script.append(clause.getName().toUpperCase())
+					.append(" ")
+					.append(clause.getBody())
+					.append("\n");
+				break;
+			}
+			default:
+				throw new IllegalArgumentException("Unexpected value for clause: " + clause.getName());
+			}
+		}
+		script.append(";\n");
+		
+		return script.toString();
+	}
+	
 	/**
 	 * Write [content] in the given [file]
 	 * @param file

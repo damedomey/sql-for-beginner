@@ -34,4 +34,8 @@
     <clauses name="Set" body="nom = &quot;AMEDOMEY"/>
     <clauses name="Where" body="prenom = 'david'"/>
   </queries>
+  <queries xsi:type="sqlProgram:Delete">
+    <objects xsi:type="sqlProgram:Table" name="Person"/>
+    <clauses name="Where" body="name = 'david'"/>
+  </queries>
 </sqlProgram:SqlProgram>

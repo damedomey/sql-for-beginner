@@ -9,6 +9,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.PlatformUI;
 
 import sqlProgram.Creation;
+import sqlProgram.Delete;
 import sqlProgram.Queries;
 import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
@@ -45,6 +46,8 @@ public class GenerateSqlFileHandler extends AbstractHandler implements IHandler 
 	        			sqlScript.append(SqlScript.fromCreation((Creation) query));
 	        		} else if (query instanceof Update) {
 	        			sqlScript.append(SqlScript.fromUpdate((Update) query));
+	        		} else if (query instanceof Delete) {
+	        			sqlScript.append(SqlScript.fromDelete((Delete) query));
 	        		}
 	        	}
 	        	
