@@ -25,11 +25,33 @@ import sqlProgram.Column;
 import sqlProgram.Constaint;
 import sqlProgram.Creation;
 import sqlProgram.Delete;
+import sqlProgram.Queries;
 import sqlProgram.Selection;
+import sqlProgram.SqlProgram;
 import sqlProgram.Table;
 import sqlProgram.Update;
 
 public abstract class SqlScript {
+	public static String buildScript(SqlProgram rootElement) {
+		SqlProgram sqlProgram = (SqlProgram) rootElement;
+    	
+    	StringBuilder sqlScript = new StringBuilder();
+    	
+    	for (Queries query: sqlProgram.getQueries()) {
+    		if (query instanceof Selection) {
+    			sqlScript.append(SqlScript.fromSelection((Selection) query));
+    		} else if (query instanceof Creation){
+    			sqlScript.append(SqlScript.fromCreation((Creation) query));
+    		} else if (query instanceof Update) {
+    			sqlScript.append(SqlScript.fromUpdate((Update) query));
+    		} else if (query instanceof Delete) {
+    			sqlScript.append(SqlScript.fromDelete((Delete) query));
+    		}
+    	}
+    	
+    	return sqlScript.toString();
+	}
+	
 	/**
 	 * Generate the script corresponding to a [selection]
 	 * @param selection

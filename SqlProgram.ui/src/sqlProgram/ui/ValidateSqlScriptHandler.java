@@ -8,22 +8,18 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.PlatformUI;
 
-import sqlProgram.Creation;
-import sqlProgram.Delete;
-import sqlProgram.Queries;
-import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
-import sqlProgram.Update;
 import sqlProgram.ui.utils.SqlScript;
+import sqlProgram.ui.utils.SqlValidator;
 
-public class GenerateSqlFileHandler extends AbstractHandler implements IHandler {
-	@Override
-	public boolean isHandled() {
-		return true;
-	}
-
+public class ValidateSqlScriptHandler extends AbstractHandler implements IHandler {
 	@Override
 	public boolean isEnabled() {
+		return true;
+	}
+	
+	@Override
+	public boolean isHandled() {
 		return true;
 	}
 	
@@ -34,12 +30,15 @@ public class GenerateSqlFileHandler extends AbstractHandler implements IHandler 
 	    
 	    if (selection instanceof StructuredSelection) { 	
 	    	Object firstElement = ((StructuredSelection) selection).getFirstElement();
-	        if (firstElement instanceof SqlProgram) {       	
-	    		SqlScript.showSaveWindow("Script SQL généré", SqlScript.buildScript((SqlProgram) firstElement));
+	        if (firstElement instanceof SqlProgram) {       
+	        	String script = SqlScript.buildScript((SqlProgram) firstElement);
+	        	
+	    		SqlValidator.validate(script);
 	        }       
 	    }
-	    
-		
+
+		System.out.print("Handle validation");
 		return null;
 	}
+
 }
