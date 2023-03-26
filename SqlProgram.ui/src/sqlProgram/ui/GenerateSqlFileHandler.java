@@ -41,7 +41,7 @@ public class GenerateSqlFileHandler extends AbstractHandler implements IHandler 
 	        		if (query instanceof Selection) {
 	        			sqlScript.append(SqlScript.fromSelection((Selection) query));
 	        		} else if (query instanceof Creation){
-	        			
+	        			sqlScript.append(SqlScript.fromCreation((Creation) query));
 	        		}
 	        	}
 	        	

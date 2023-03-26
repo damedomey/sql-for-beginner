@@ -454,13 +454,22 @@ public interface SqlProgramPackage extends EPackage {
 	int CREATION__CONSTAINTS = QUERIES_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATION__TYPE = QUERIES_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Creation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CREATION_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 1;
+	int CREATION_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Creation</em>' class.
@@ -721,6 +730,17 @@ public interface SqlProgramPackage extends EPackage {
 	EReference getCreation_Constaints();
 
 	/**
+	 * Returns the meta object for the attribute '{@link sqlProgram.Creation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see sqlProgram.Creation#getType()
+	 * @see #getCreation()
+	 * @generated
+	 */
+	EAttribute getCreation_Type();
+
+	/**
 	 * Returns the meta object for class '{@link sqlProgram.Constaint <em>Constaint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -940,6 +960,14 @@ public interface SqlProgramPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CREATION__CONSTAINTS = eINSTANCE.getCreation_Constaints();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CREATION__TYPE = eINSTANCE.getCreation_Type();
 
 		/**
 		 * The meta object literal for the '{@link sqlProgram.impl.ConstaintImpl <em>Constaint</em>}' class.
