@@ -34,7 +34,8 @@ Le menu du plugin est affiché lorsqu'on clique sur **SqlProgram**. Le nom du me
 
 | Requête        | Model editor            | Generated script |
 |----------------|-------------------------|------------------|
-| SELECT de base | ![img.png](img.png) | ![img_2.png](img_2.png)|
+| SELECT de base | ![img](https://user-images.githubusercontent.com/62824558/227782335-25dcf963-6771-46a0-b571-fdaa5057fa75.png) |![img_2](https://user-images.githubusercontent.com/62824558/227782349-eb53c589-5d7f-4b74-96f9-b29d9ede1aef.png)|
+
 
 ## Troubleshooting
 If the project does not work, this page can help you
