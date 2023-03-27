@@ -10,6 +10,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -22,14 +23,17 @@ import javax.swing.JTextArea;
 
 import sqlProgram.Clause;
 import sqlProgram.Column;
+import sqlProgram.ColumnValue;
 import sqlProgram.Constaint;
 import sqlProgram.Creation;
 import sqlProgram.Delete;
+import sqlProgram.Insertion;
 import sqlProgram.Queries;
 import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
 import sqlProgram.Table;
 import sqlProgram.Update;
+import sqlProgram.Value;
 
 public abstract class SqlScript {
 	public static String buildScript(SqlProgram rootElement) {
@@ -46,6 +50,8 @@ public abstract class SqlScript {
     			sqlScript.append(SqlScript.fromUpdate((Update) query));
     		} else if (query instanceof Delete) {
     			sqlScript.append(SqlScript.fromDelete((Delete) query));
+    		} else if (query instanceof Insertion) {
+    			sqlScript.append(SqlScript.fromInsertion((Insertion) query));
     		}
     	}
     	
@@ -149,6 +155,55 @@ public abstract class SqlScript {
 			throw new IllegalArgumentException("Unexpected value: " + creation.getType());
 		}
 		
+		
+		return script.toString();
+	}
+	
+	public static String fromInsertion(Insertion insertion) {
+		StringBuilder script = new StringBuilder();
+		
+		for (Object object: insertion.getObjects()) {
+			if (object instanceof Table) {
+				Table table = (Table) object;
+				script.append("INSERT INTO ")
+					.append(table.getName());
+				
+				if (table.getColumns().size() > 0) {
+					String columnList = "";
+					for (Column column : table.getColumns()) {
+						columnList +=  columnList == "" ? "":", ";
+						columnList += column.getName();
+					}
+					
+					script.append("(")
+						.append(columnList)
+						.append(")");
+				}
+				
+				script.append("\n");
+				
+				break; // A creation can't concern more than 1 table due to possible constraints
+			}
+		}
+		
+		String values = "";
+		for (Value value : insertion.getValues()) {
+			// TODO: With this configuration, we don't know the type of data in the columnValue. So, we generate all of these as string. How to resolve this without add another information ?
+			
+			String valueRow = "";
+			for (ColumnValue columValue: value.getColumnvalues()) {
+				valueRow +=  valueRow == "" ? "":", ";
+				valueRow += columValue.getValue();
+			}
+			
+			values +=  values == "" ? "":", ";
+			values += "(" + valueRow + ")";
+		}
+		
+		script.append("VALUES ")
+			.append(values)
+			.append(";")
+			.append("\n");
 		
 		return script.toString();
 	}
