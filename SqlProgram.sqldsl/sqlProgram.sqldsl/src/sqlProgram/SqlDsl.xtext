@@ -5,11 +5,7 @@ import "http://www.example.org/sqlProgram"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 SqlProgram returns SqlProgram:
-	{SqlProgram}
-	'SqlProgram'
-	'{'
-		('queries' '{' queries+=Queries ( "," queries+=Queries)* '}' )?
-	'}';
+	{SqlProgram} (queries+=Queries ";")*;
 
 Queries returns Queries:
 	Selection | Creation | Update | Insertion | Delete;
@@ -17,100 +13,80 @@ Queries returns Queries:
 Objects returns Objects:
 	Table | Column;
 
-
-
-
-
-
-
 Selection returns Selection:
 	{Selection}
-	'Selection'
-	'{'
-		('objects' '{' objects+=Objects ( "," objects+=Objects)* '}' )?
-		('clauses' '{' clauses+=Clause ( "," clauses+=Clause)* '}' )?
-	'}';
+	'SELECT' 'FROM' 
+		objects+=Table ("," objects+=Table)*
+		(clauses+=Clause)*
+	;
 
 Creation returns Creation:
 	{Creation}
-	'Creation'
-	'{'
-		('type' type=EString)?
-		('objects' '{' objects+=Objects ( "," objects+=Objects)* '}' )?
-		('constaints' '{' constaints+=Constaint ( "," constaints+=Constaint)* '}' )?
-	'}';
+	'CREATE' (
+		// table creation concrete syntax
+		(
+			type='TABLE' objects+=Table
+			(constaints+=Constaint ( "," constaints+=Constaint)*)?
+		) |
+		// index creation concrete syntax
+		(
+			type='INDEX' objects+=Table
+		)	
+	);
 
 Update returns Update:
 	{Update}
-	'Update'
-	'{'
-		('objects' '{' objects+=Objects ( "," objects+=Objects)* '}' )?
-		('clauses' '{' clauses+=Clause ( "," clauses+=Clause)* '}' )?
-	'}';
+	'UPDATE' objects+=Table
+	clauses+=Clause ( "," clauses+=Clause)*;
 
 Insertion returns Insertion:
 	{Insertion}
-	'Insertion'
-	'{'
-		('objects' '{' objects+=Objects ( "," objects+=Objects)* '}' )?
-		('values' '{' values+=Value ( "," values+=Value)* '}' )?
-	'}';
+	'INSERT' 'INTO' objects+=Table
+	values+=Value ( "," values+=Value)*;
 
 Delete returns Delete:
 	{Delete}
-	'Delete'
-	'{'
-		('objects' '{' objects+=Objects ( "," objects+=Objects)* '}' )?
-		('clauses' '{' clauses+=Clause ( "," clauses+=Clause)* '}' )?
-	'}';
+	'DELETE' 'FROM' objects+=Table
+	(clauses+=Clause ( "," clauses+=Clause)*)?;
 
 EString returns ecore::EString:
 	STRING | ID;
 
 Table returns Table:
 	{Table}
-	'Table'
 	name=EString
 	'{'
-		('columns' '{' columns+=Column ( "," columns+=Column)* '}' )?
+		(columns+=Column ( "," columns+=Column)*)?
 	'}';
 
 Column returns Column:
 	{Column}
-	'Column'
-	name=EString
-	'{'
-		('type' type=[Type|EString])?
-	'}';
+	name=EString (type=[Type|EString])?;
 
 Type returns Type:
 	{Type}
-	'Type'
-	name=EString;
+	name=(('int' | 'INT')| ('double' | 'DOUBLE') | ('float' | 'FLOAT') | ('date' | 'DATE')| EString);
 
 Clause returns Clause:
-	'Clause'
-	name=EString
-	'{'
-		'body' body=EString
-	'}';
+	name=(
+			'AND'|'OR'|'WHERE'|'SET'|'HAVING'|'LIMIT'|'OFFSET'|
+			'and'|'or'|'where'|'set'|'having'|'limit'|'offset'
+		)
+	body=ComplexString;
 
 Constaint returns Constaint:
-	'Constaint'
-	'{'
-		'body' body=EString
-	'}';
+	'CONSTRAINT' body=ComplexString;
 
 Value returns Value:
 	{Value}
 	'Value'
-	'{'
-		('columnvalues' '{' columnvalues+=ColumnValue ( "," columnvalues+=ColumnValue)* '}' )?
-	'}';
+	'('
+		(columnvalues+=ColumnValue ( "," columnvalues+=ColumnValue)*)?
+	')';
 
 ColumnValue returns ColumnValue:
-	{ColumnValue}
-	'ColumnValue'
-	'{'
-		('value' value=EString)?
-	'}';
+	{ColumnValue} value=EString;
+	
+ComplexString returns ecore::EString:
+	EString(('.')?('*')?('=')?EString)*'()'?
+;
