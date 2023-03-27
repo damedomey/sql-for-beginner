@@ -8,27 +8,38 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import sqlProgram.Insertion;
+
 import sqlProgram.SqlProgramFactory;
 import sqlProgram.SqlProgramPackage;
+import sqlProgram.Value;
 
 /**
- * This is the item provider adapter for a {@link sqlProgram.Insertion} object.
+ * This is the item provider adapter for a {@link sqlProgram.Value} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InsertionItemProvider extends QueriesItemProvider {
+public class ValueItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InsertionItemProvider(AdapterFactory adapterFactory) {
+	public ValueItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -59,7 +70,7 @@ public class InsertionItemProvider extends QueriesItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SqlProgramPackage.Literals.INSERTION__VALUES);
+			childrenFeatures.add(SqlProgramPackage.Literals.VALUE__COLUMNVALUES);
 		}
 		return childrenFeatures;
 	}
@@ -78,14 +89,14 @@ public class InsertionItemProvider extends QueriesItemProvider {
 	}
 
 	/**
-	 * This returns Insertion.gif.
+	 * This returns Value.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Insertion"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Value"));
 	}
 
 	/**
@@ -106,7 +117,7 @@ public class InsertionItemProvider extends QueriesItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Insertion_type");
+		return getString("_UI_Value_type");
 	}
 
 	/**
@@ -120,8 +131,8 @@ public class InsertionItemProvider extends QueriesItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Insertion.class)) {
-		case SqlProgramPackage.INSERTION__VALUES:
+		switch (notification.getFeatureID(Value.class)) {
+		case SqlProgramPackage.VALUE__COLUMNVALUES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -139,8 +150,19 @@ public class InsertionItemProvider extends QueriesItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.INSERTION__VALUES,
-				SqlProgramFactory.eINSTANCE.createValue()));
+		newChildDescriptors.add(createChildParameter(SqlProgramPackage.Literals.VALUE__COLUMNVALUES,
+				SqlProgramFactory.eINSTANCE.createColumnValue()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return SqlProgramEditPlugin.INSTANCE;
 	}
 
 }

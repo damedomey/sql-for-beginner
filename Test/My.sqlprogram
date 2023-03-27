@@ -13,6 +13,12 @@
       </columns>
     </objects>
   </queries>
+  <queries xsi:type="sqlProgram:Insertion">
+    <objects xsi:type="sqlProgram:Table" name="Person"/>
+    <values>
+      <columnvalues value="ok"/>
+    </values>
+  </queries>
   <queries xsi:type="sqlProgram:Selection">
     <objects xsi:type="sqlProgram:Table" name="Person">
       <columns name="nom">

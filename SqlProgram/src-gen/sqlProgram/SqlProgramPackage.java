@@ -583,13 +583,22 @@ public interface SqlProgramPackage extends EPackage {
 	int INSERTION__OBJECTS = QUERIES__OBJECTS;
 
 	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSERTION__VALUES = QUERIES_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Insertion</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSERTION_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 0;
+	int INSERTION_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Insertion</em>' class.
@@ -645,6 +654,80 @@ public interface SqlProgramPackage extends EPackage {
 	 * @ordered
 	 */
 	int DELETE_OPERATION_COUNT = QUERIES_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.ValueImpl <em>Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.ValueImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getValue()
+	 * @generated
+	 */
+	int VALUE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Columnvalues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__COLUMNVALUES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.ColumnValueImpl <em>Column Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.ColumnValueImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getColumnValue()
+	 * @generated
+	 */
+	int COLUMN_VALUE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_VALUE__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Column Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_VALUE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Column Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_VALUE_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link sqlProgram.SqlProgram <em>Sql Program</em>}'.
@@ -931,6 +1014,17 @@ public interface SqlProgramPackage extends EPackage {
 	EClass getInsertion();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Insertion#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see sqlProgram.Insertion#getValues()
+	 * @see #getInsertion()
+	 * @generated
+	 */
+	EReference getInsertion_Values();
+
+	/**
 	 * Returns the meta object for class '{@link sqlProgram.Delete <em>Delete</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -950,6 +1044,48 @@ public interface SqlProgramPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDelete_Clauses();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value</em>'.
+	 * @see sqlProgram.Value
+	 * @generated
+	 */
+	EClass getValue();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Value#getColumnvalues <em>Columnvalues</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columnvalues</em>'.
+	 * @see sqlProgram.Value#getColumnvalues()
+	 * @see #getValue()
+	 * @generated
+	 */
+	EReference getValue_Columnvalues();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.ColumnValue <em>Column Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Column Value</em>'.
+	 * @see sqlProgram.ColumnValue
+	 * @generated
+	 */
+	EClass getColumnValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sqlProgram.ColumnValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see sqlProgram.ColumnValue#getValue()
+	 * @see #getColumnValue()
+	 * @generated
+	 */
+	EAttribute getColumnValue_Value();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1217,6 +1353,14 @@ public interface SqlProgramPackage extends EPackage {
 		EClass INSERTION = eINSTANCE.getInsertion();
 
 		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INSERTION__VALUES = eINSTANCE.getInsertion_Values();
+
+		/**
 		 * The meta object literal for the '{@link sqlProgram.impl.DeleteImpl <em>Delete</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1233,6 +1377,42 @@ public interface SqlProgramPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DELETE__CLAUSES = eINSTANCE.getDelete_Clauses();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.ValueImpl <em>Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.ValueImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getValue()
+		 * @generated
+		 */
+		EClass VALUE = eINSTANCE.getValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Columnvalues</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE__COLUMNVALUES = eINSTANCE.getValue_Columnvalues();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.ColumnValueImpl <em>Column Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.ColumnValueImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getColumnValue()
+		 * @generated
+		 */
+		EClass COLUMN_VALUE = eINSTANCE.getColumnValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN_VALUE__VALUE = eINSTANCE.getColumnValue_Value();
 
 	}
 

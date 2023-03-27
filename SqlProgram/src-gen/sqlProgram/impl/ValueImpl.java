@@ -3,47 +3,53 @@
 package sqlProgram.impl;
 
 import java.util.Collection;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import sqlProgram.Insertion;
+
+import sqlProgram.ColumnValue;
 import sqlProgram.SqlProgramPackage;
 import sqlProgram.Value;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Insertion</b></em>'.
+ * An implementation of the model object '<em><b>Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sqlProgram.impl.InsertionImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link sqlProgram.impl.ValueImpl#getColumnvalues <em>Columnvalues</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InsertionImpl extends QueriesImpl implements Insertion {
+public class ValueImpl extends MinimalEObjectImpl.Container implements Value {
 	/**
-	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
+	 * The cached value of the '{@link #getColumnvalues() <em>Columnvalues</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValues()
+	 * @see #getColumnvalues()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Value> values;
+	protected EList<ColumnValue> columnvalues;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InsertionImpl() {
+	protected ValueImpl() {
 		super();
 	}
 
@@ -54,7 +60,7 @@ public class InsertionImpl extends QueriesImpl implements Insertion {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SqlProgramPackage.Literals.INSERTION;
+		return SqlProgramPackage.Literals.VALUE;
 	}
 
 	/**
@@ -62,11 +68,12 @@ public class InsertionImpl extends QueriesImpl implements Insertion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Value> getValues() {
-		if (values == null) {
-			values = new EObjectContainmentEList<Value>(Value.class, this, SqlProgramPackage.INSERTION__VALUES);
+	public EList<ColumnValue> getColumnvalues() {
+		if (columnvalues == null) {
+			columnvalues = new EObjectContainmentEList<ColumnValue>(ColumnValue.class, this,
+					SqlProgramPackage.VALUE__COLUMNVALUES);
 		}
-		return values;
+		return columnvalues;
 	}
 
 	/**
@@ -77,8 +84,8 @@ public class InsertionImpl extends QueriesImpl implements Insertion {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case SqlProgramPackage.INSERTION__VALUES:
-			return ((InternalEList<?>) getValues()).basicRemove(otherEnd, msgs);
+		case SqlProgramPackage.VALUE__COLUMNVALUES:
+			return ((InternalEList<?>) getColumnvalues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -91,8 +98,8 @@ public class InsertionImpl extends QueriesImpl implements Insertion {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SqlProgramPackage.INSERTION__VALUES:
-			return getValues();
+		case SqlProgramPackage.VALUE__COLUMNVALUES:
+			return getColumnvalues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,9 +113,9 @@ public class InsertionImpl extends QueriesImpl implements Insertion {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SqlProgramPackage.INSERTION__VALUES:
-			getValues().clear();
-			getValues().addAll((Collection<? extends Value>) newValue);
+		case SqlProgramPackage.VALUE__COLUMNVALUES:
+			getColumnvalues().clear();
+			getColumnvalues().addAll((Collection<? extends ColumnValue>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +129,8 @@ public class InsertionImpl extends QueriesImpl implements Insertion {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SqlProgramPackage.INSERTION__VALUES:
-			getValues().clear();
+		case SqlProgramPackage.VALUE__COLUMNVALUES:
+			getColumnvalues().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -137,10 +144,10 @@ public class InsertionImpl extends QueriesImpl implements Insertion {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SqlProgramPackage.INSERTION__VALUES:
-			return values != null && !values.isEmpty();
+		case SqlProgramPackage.VALUE__COLUMNVALUES:
+			return columnvalues != null && !columnvalues.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //InsertionImpl
+} //ValueImpl

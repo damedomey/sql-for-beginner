@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import sqlProgram.Clause;
 import sqlProgram.Column;
+import sqlProgram.ColumnValue;
 import sqlProgram.Constaint;
 import sqlProgram.Creation;
 import sqlProgram.Delete;
@@ -25,6 +26,7 @@ import sqlProgram.SqlProgramPackage;
 import sqlProgram.Table;
 import sqlProgram.Type;
 import sqlProgram.Update;
+import sqlProgram.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -130,6 +132,20 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * @generated
 	 */
 	private EClass deleteEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass columnValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -443,6 +459,15 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getInsertion_Values() {
+		return (EReference) insertionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDelete() {
 		return deleteEClass;
 	}
@@ -454,6 +479,42 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 */
 	public EReference getDelete_Clauses() {
 		return (EReference) deleteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getValue() {
+		return valueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValue_Columnvalues() {
+		return (EReference) valueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getColumnValue() {
+		return columnValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColumnValue_Value() {
+		return (EAttribute) columnValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -524,9 +585,16 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		createEReference(updateEClass, UPDATE__CLAUSES);
 
 		insertionEClass = createEClass(INSERTION);
+		createEReference(insertionEClass, INSERTION__VALUES);
 
 		deleteEClass = createEClass(DELETE);
 		createEReference(deleteEClass, DELETE__CLAUSES);
+
+		valueEClass = createEClass(VALUE);
+		createEReference(valueEClass, VALUE__COLUMNVALUES);
+
+		columnValueEClass = createEClass(COLUMN_VALUE);
+		createEAttribute(columnValueEClass, COLUMN_VALUE__VALUE);
 	}
 
 	/**
@@ -633,11 +701,24 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 
 		initEClass(insertionEClass, Insertion.class, "Insertion", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInsertion_Values(), this.getValue(), null, "values", null, 0, -1, Insertion.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deleteEClass, Delete.class, "Delete", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDelete_Clauses(), this.getClause(), null, "clauses", null, 0, -1, Delete.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+
+		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getValue_Columnvalues(), this.getColumnValue(), null, "columnvalues", null, 0, -1, Value.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(columnValueEClass, ColumnValue.class, "ColumnValue", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getColumnValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, ColumnValue.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

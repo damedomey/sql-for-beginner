@@ -80,6 +80,10 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 			return createInsertion();
 		case SqlProgramPackage.DELETE:
 			return createDelete();
+		case SqlProgramPackage.VALUE:
+			return createValue();
+		case SqlProgramPackage.COLUMN_VALUE:
+			return createColumnValue();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -203,6 +207,26 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 	public Delete createDelete() {
 		DeleteImpl delete = new DeleteImpl();
 		return delete;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value createValue() {
+		ValueImpl value = new ValueImpl();
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColumnValue createColumnValue() {
+		ColumnValueImpl columnValue = new ColumnValueImpl();
+		return columnValue;
 	}
 
 	/**
