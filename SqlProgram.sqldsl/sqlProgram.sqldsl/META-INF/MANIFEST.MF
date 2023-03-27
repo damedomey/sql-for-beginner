@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: sqlProgram.sqldsl
+Bundle-ManifestVersion: 2
+Bundle-Name: sqlProgram.sqldsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: sqlProgram.sqldsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: SqlProgram,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: sqlProgram.parser.antlr.internal,
+ sqlProgram.serializer,
+ sqlProgram.validation,
+ sqlProgram.scoping,
+ sqlProgram.formatting2,
+ sqlProgram.services,
+ sqlProgram.generator,
+ sqlProgram.parser.antlr,
+ sqlProgram
+Import-Package: org.apache.log4j
