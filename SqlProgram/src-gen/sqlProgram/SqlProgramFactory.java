@@ -103,6 +103,51 @@ public interface SqlProgramFactory extends EFactory {
 	Constaint createConstaint();
 
 	/**
+	 * Returns a new object of class '<em>Update</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Update</em>'.
+	 * @generated
+	 */
+	Update createUpdate();
+
+	/**
+	 * Returns a new object of class '<em>Insertion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Insertion</em>'.
+	 * @generated
+	 */
+	Insertion createInsertion();
+
+	/**
+	 * Returns a new object of class '<em>Delete</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Delete</em>'.
+	 * @generated
+	 */
+	Delete createDelete();
+
+	/**
+	 * Returns a new object of class '<em>Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Value</em>'.
+	 * @generated
+	 */
+	Value createValue();
+
+	/**
+	 * Returns a new object of class '<em>Column Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Column Value</em>'.
+	 * @generated
+	 */
+	ColumnValue createColumnValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

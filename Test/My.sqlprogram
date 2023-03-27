@@ -13,6 +13,29 @@
       </columns>
     </objects>
   </queries>
+  <queries xsi:type="sqlProgram:Insertion">
+    <objects xsi:type="sqlProgram:Table" name="Person">
+      <columns name="nom">
+        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.2"/>
+      </columns>
+      <columns name="prenom">
+        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.2"/>
+      </columns>
+      <columns name="age">
+        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.0"/>
+      </columns>
+    </objects>
+    <values>
+      <columnvalues value="firstname"/>
+      <columnvalues value="lastname"/>
+      <columnvalues value="81"/>
+    </values>
+    <values>
+      <columnvalues value="firstname"/>
+      <columnvalues value="lastname"/>
+      <columnvalues value="81"/>
+    </values>
+  </queries>
   <queries xsi:type="sqlProgram:Selection">
     <objects xsi:type="sqlProgram:Table" name="Person">
       <columns name="nom">
@@ -28,5 +51,14 @@
     <clauses name="Where" body="age > 10"/>
     <clauses name="And" body="name = 'david'"/>
     <clauses name="Or" body="name = 'mo'"/>
+  </queries>
+  <queries xsi:type="sqlProgram:Update">
+    <objects xsi:type="sqlProgram:Table" name="Person"/>
+    <clauses name="Set" body="nom = &quot;AMEDOMEY"/>
+    <clauses name="Where" body="prenom = 'david'"/>
+  </queries>
+  <queries xsi:type="sqlProgram:Delete">
+    <objects xsi:type="sqlProgram:Table" name="Person"/>
+    <clauses name="Where" body="name = 'david'"/>
   </queries>
 </sqlProgram:SqlProgram>

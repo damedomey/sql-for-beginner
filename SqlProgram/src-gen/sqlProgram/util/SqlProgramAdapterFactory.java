@@ -122,6 +122,31 @@ public class SqlProgramAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseUpdate(Update object) {
+			return createUpdateAdapter();
+		}
+
+		@Override
+		public Adapter caseInsertion(Insertion object) {
+			return createInsertionAdapter();
+		}
+
+		@Override
+		public Adapter caseDelete(Delete object) {
+			return createDeleteAdapter();
+		}
+
+		@Override
+		public Adapter caseValue(Value object) {
+			return createValueAdapter();
+		}
+
+		@Override
+		public Adapter caseColumnValue(ColumnValue object) {
+			return createColumnValueAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -291,6 +316,76 @@ public class SqlProgramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConstaintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sqlProgram.Update <em>Update</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sqlProgram.Update
+	 * @generated
+	 */
+	public Adapter createUpdateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sqlProgram.Insertion <em>Insertion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sqlProgram.Insertion
+	 * @generated
+	 */
+	public Adapter createInsertionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sqlProgram.Delete <em>Delete</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sqlProgram.Delete
+	 * @generated
+	 */
+	public Adapter createDeleteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sqlProgram.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sqlProgram.Value
+	 * @generated
+	 */
+	public Adapter createValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sqlProgram.ColumnValue <em>Column Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sqlProgram.ColumnValue
+	 * @generated
+	 */
+	public Adapter createColumnValueAdapter() {
 		return null;
 	}
 

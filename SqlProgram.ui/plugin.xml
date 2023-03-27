@@ -7,12 +7,20 @@
             id="SqlProgram.ui.generateSqlFile"
             name="GenerateSQLFile">
       </command>
+      <command
+            id="SqlProgram.ui.validateSqlScript"
+            name="ValidateSqlScript">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
             class="sqlProgram.ui.GenerateSqlFileHandler"
             commandId="SqlProgram.ui.generateSqlFile">
+      </handler>
+      <handler
+            class="sqlProgram.ui.ValidateSqlScriptHandler"
+            commandId="SqlProgram.ui.validateSqlScript">
       </handler>
    </extension>
    <extension
@@ -25,6 +33,24 @@
             <command
                   commandId="SqlProgram.ui.generateSqlFile"
                   label="Generate script SQL"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="true">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false"
+                           operator="and">
+                        <adapt
+                              type="sqlProgram.SqlProgram">
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="SqlProgram.ui.validateSqlScript"
+                  label="Validate"
                   style="push">
                <visibleWhen
                      checkEnabled="true">

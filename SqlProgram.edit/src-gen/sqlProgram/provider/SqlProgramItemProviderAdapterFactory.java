@@ -280,6 +280,121 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link sqlProgram.Update} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UpdateItemProvider updateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sqlProgram.Update}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUpdateAdapter() {
+		if (updateItemProvider == null) {
+			updateItemProvider = new UpdateItemProvider(this);
+		}
+
+		return updateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sqlProgram.Insertion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InsertionItemProvider insertionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sqlProgram.Insertion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInsertionAdapter() {
+		if (insertionItemProvider == null) {
+			insertionItemProvider = new InsertionItemProvider(this);
+		}
+
+		return insertionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sqlProgram.Delete} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeleteItemProvider deleteItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sqlProgram.Delete}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDeleteAdapter() {
+		if (deleteItemProvider == null) {
+			deleteItemProvider = new DeleteItemProvider(this);
+		}
+
+		return deleteItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sqlProgram.Value} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueItemProvider valueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sqlProgram.Value}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValueAdapter() {
+		if (valueItemProvider == null) {
+			valueItemProvider = new ValueItemProvider(this);
+		}
+
+		return valueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sqlProgram.ColumnValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColumnValueItemProvider columnValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sqlProgram.ColumnValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createColumnValueAdapter() {
+		if (columnValueItemProvider == null) {
+			columnValueItemProvider = new ColumnValueItemProvider(this);
+		}
+
+		return columnValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,6 +511,16 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 			creationItemProvider.dispose();
 		if (constaintItemProvider != null)
 			constaintItemProvider.dispose();
+		if (updateItemProvider != null)
+			updateItemProvider.dispose();
+		if (insertionItemProvider != null)
+			insertionItemProvider.dispose();
+		if (deleteItemProvider != null)
+			deleteItemProvider.dispose();
+		if (valueItemProvider != null)
+			valueItemProvider.dispose();
+		if (columnValueItemProvider != null)
+			columnValueItemProvider.dispose();
 	}
 
 }

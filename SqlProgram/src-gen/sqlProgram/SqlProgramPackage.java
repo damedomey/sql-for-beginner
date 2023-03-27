@@ -491,13 +491,22 @@ public interface SqlProgramPackage extends EPackage {
 	int CONSTAINT = 10;
 
 	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTAINT__BODY = 0;
+
+	/**
 	 * The number of structural features of the '<em>Constaint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTAINT_FEATURE_COUNT = 0;
+	int CONSTAINT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Constaint</em>' class.
@@ -507,6 +516,218 @@ public interface SqlProgramPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTAINT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.UpdateImpl <em>Update</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.UpdateImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getUpdate()
+	 * @generated
+	 */
+	int UPDATE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE__OBJECTS = QUERIES__OBJECTS;
+
+	/**
+	 * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE__CLAUSES = QUERIES_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Update</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Update</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_OPERATION_COUNT = QUERIES_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.InsertionImpl <em>Insertion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.InsertionImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getInsertion()
+	 * @generated
+	 */
+	int INSERTION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSERTION__OBJECTS = QUERIES__OBJECTS;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSERTION__VALUES = QUERIES_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Insertion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSERTION_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Insertion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSERTION_OPERATION_COUNT = QUERIES_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.DeleteImpl <em>Delete</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.DeleteImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getDelete()
+	 * @generated
+	 */
+	int DELETE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE__OBJECTS = QUERIES__OBJECTS;
+
+	/**
+	 * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE__CLAUSES = QUERIES_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Delete</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE_FEATURE_COUNT = QUERIES_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Delete</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE_OPERATION_COUNT = QUERIES_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.ValueImpl <em>Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.ValueImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getValue()
+	 * @generated
+	 */
+	int VALUE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Columnvalues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__COLUMNVALUES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.ColumnValueImpl <em>Column Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.ColumnValueImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getColumnValue()
+	 * @generated
+	 */
+	int COLUMN_VALUE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_VALUE__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Column Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_VALUE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Column Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_VALUE_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link sqlProgram.SqlProgram <em>Sql Program</em>}'.
@@ -751,6 +972,122 @@ public interface SqlProgramPackage extends EPackage {
 	EClass getConstaint();
 
 	/**
+	 * Returns the meta object for the attribute '{@link sqlProgram.Constaint#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Body</em>'.
+	 * @see sqlProgram.Constaint#getBody()
+	 * @see #getConstaint()
+	 * @generated
+	 */
+	EAttribute getConstaint_Body();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.Update <em>Update</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Update</em>'.
+	 * @see sqlProgram.Update
+	 * @generated
+	 */
+	EClass getUpdate();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Update#getClauses <em>Clauses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Clauses</em>'.
+	 * @see sqlProgram.Update#getClauses()
+	 * @see #getUpdate()
+	 * @generated
+	 */
+	EReference getUpdate_Clauses();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.Insertion <em>Insertion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Insertion</em>'.
+	 * @see sqlProgram.Insertion
+	 * @generated
+	 */
+	EClass getInsertion();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Insertion#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see sqlProgram.Insertion#getValues()
+	 * @see #getInsertion()
+	 * @generated
+	 */
+	EReference getInsertion_Values();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.Delete <em>Delete</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Delete</em>'.
+	 * @see sqlProgram.Delete
+	 * @generated
+	 */
+	EClass getDelete();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Delete#getClauses <em>Clauses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Clauses</em>'.
+	 * @see sqlProgram.Delete#getClauses()
+	 * @see #getDelete()
+	 * @generated
+	 */
+	EReference getDelete_Clauses();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value</em>'.
+	 * @see sqlProgram.Value
+	 * @generated
+	 */
+	EClass getValue();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Value#getColumnvalues <em>Columnvalues</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columnvalues</em>'.
+	 * @see sqlProgram.Value#getColumnvalues()
+	 * @see #getValue()
+	 * @generated
+	 */
+	EReference getValue_Columnvalues();
+
+	/**
+	 * Returns the meta object for class '{@link sqlProgram.ColumnValue <em>Column Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Column Value</em>'.
+	 * @see sqlProgram.ColumnValue
+	 * @generated
+	 */
+	EClass getColumnValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sqlProgram.ColumnValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see sqlProgram.ColumnValue#getValue()
+	 * @see #getColumnValue()
+	 * @generated
+	 */
+	EAttribute getColumnValue_Value();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -978,6 +1315,104 @@ public interface SqlProgramPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONSTAINT = eINSTANCE.getConstaint();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTAINT__BODY = eINSTANCE.getConstaint_Body();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.UpdateImpl <em>Update</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.UpdateImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getUpdate()
+		 * @generated
+		 */
+		EClass UPDATE = eINSTANCE.getUpdate();
+
+		/**
+		 * The meta object literal for the '<em><b>Clauses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UPDATE__CLAUSES = eINSTANCE.getUpdate_Clauses();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.InsertionImpl <em>Insertion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.InsertionImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getInsertion()
+		 * @generated
+		 */
+		EClass INSERTION = eINSTANCE.getInsertion();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INSERTION__VALUES = eINSTANCE.getInsertion_Values();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.DeleteImpl <em>Delete</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.DeleteImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getDelete()
+		 * @generated
+		 */
+		EClass DELETE = eINSTANCE.getDelete();
+
+		/**
+		 * The meta object literal for the '<em><b>Clauses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DELETE__CLAUSES = eINSTANCE.getDelete_Clauses();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.ValueImpl <em>Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.ValueImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getValue()
+		 * @generated
+		 */
+		EClass VALUE = eINSTANCE.getValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Columnvalues</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE__COLUMNVALUES = eINSTANCE.getValue_Columnvalues();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.ColumnValueImpl <em>Column Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.ColumnValueImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getColumnValue()
+		 * @generated
+		 */
+		EClass COLUMN_VALUE = eINSTANCE.getColumnValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN_VALUE__VALUE = eINSTANCE.getColumnValue_Value();
 
 	}
 

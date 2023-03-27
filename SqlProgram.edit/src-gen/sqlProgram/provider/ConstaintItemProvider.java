@@ -10,13 +10,18 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import sqlProgram.Constaint;
+import sqlProgram.SqlProgramPackage;
 
 /**
  * This is the item provider adapter for a {@link sqlProgram.Constaint} object.
@@ -47,8 +52,25 @@ public class ConstaintItemProvider extends ItemProviderAdapter implements IEditi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBodyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Body feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBodyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Constaint_body_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Constaint_body_feature",
+								"_UI_Constaint_type"),
+						SqlProgramPackage.Literals.CONSTAINT__BODY, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -80,7 +102,9 @@ public class ConstaintItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Constaint_type");
+		String label = ((Constaint) object).getBody();
+		return label == null || label.length() == 0 ? getString("_UI_Constaint_type")
+				: getString("_UI_Constaint_type") + " " + label;
 	}
 
 	/**
@@ -93,6 +117,12 @@ public class ConstaintItemProvider extends ItemProviderAdapter implements IEditi
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Constaint.class)) {
+		case SqlProgramPackage.CONSTAINT__BODY:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 
