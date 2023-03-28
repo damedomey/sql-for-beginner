@@ -5,6 +5,12 @@
       <columns>
         <type href="Library.sqlprogram#//@type.0"/>
       </columns>
+      <columns>
+        <type href="Library.sqlprogram#//@type.1"/>
+      </columns>
+      <columns>
+        <type href="Library.sqlprogram#//@type.2"/>
+      </columns>
     </objects>
   </queries>
 </sqlProgram:SqlProgram>
