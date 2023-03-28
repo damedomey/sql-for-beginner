@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlProgram:SqlProgram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sqlProgram="http://www.example.org/sqlProgram">
+  <queries xsi:type="sqlProgram:Creation">
+    <objects xsi:type="sqlProgram:Table" name="Person">
+      <columns>
+        <type href="Library.sqlprogram#//@type.0"/>
+      </columns>
+    </objects>
+  </queries>
+</sqlProgram:SqlProgram>
