@@ -3,13 +3,13 @@
   <queries xsi:type="sqlProgram:Creation">
     <objects xsi:type="sqlProgram:Table" name="Person">
       <columns name="nom">
-        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.2"/>
+        <type href="Library.sqlprogram#//@type.2"/>
       </columns>
       <columns name="prenom">
-        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.2"/>
+        <type href="Library.sqlprogram#//@type.2"/>
       </columns>
       <columns name="age">
-        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.0"/>
+        <type href="Library.sqlprogram#//@type.0"/>
       </columns>
     </objects>
   </queries>
@@ -23,13 +23,13 @@
   <queries xsi:type="sqlProgram:Insertion">
     <objects xsi:type="sqlProgram:Table" name="Person">
       <columns name="nom">
-        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.2"/>
+        <type href="Library.sqlprogram#//@type.2"/>
       </columns>
       <columns name="prenom">
-        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.2"/>
+        <type href="Library.sqlprogram#//@type.2"/>
       </columns>
       <columns name="age">
-        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.0"/>
+        <type href="Library.sqlprogram#//@type.0"/>
       </columns>
     </objects>
     <values>
@@ -46,13 +46,13 @@
   <queries xsi:type="sqlProgram:Selection">
     <objects xsi:type="sqlProgram:Table" name="Person">
       <columns name="nom">
-        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.2"/>
+        <type href="Library.sqlprogram#//@type.2"/>
       </columns>
       <columns name="prenom">
-        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.2"/>
+        <type href="Library.sqlprogram#//@type.2"/>
       </columns>
       <columns name="age">
-        <type href="file:/media/patch/A4B4DEDAB4DEADD48/workspace/master%20courses/s2/Software%20engineering/TP%20SQL/Test/Library.sqlprogram#//@type.0"/>
+        <type href="Library.sqlprogram#//@type.0"/>
       </columns>
     </objects>
     <clauses name="Where" body="age > 10"/>

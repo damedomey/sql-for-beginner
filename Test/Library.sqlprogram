@@ -2,5 +2,5 @@
 <sqlProgram:Library xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sqlProgram="http://www.example.org/sqlProgram">
   <type name="int"/>
   <type name="double"/>
-  <type name="varchar100"/>
+  <type name="varchar(100)"/>
 </sqlProgram:Library>
