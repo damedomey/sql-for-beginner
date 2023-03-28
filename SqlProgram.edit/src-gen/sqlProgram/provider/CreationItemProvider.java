@@ -48,6 +48,7 @@ public class CreationItemProvider extends QueriesItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,6 +66,22 @@ public class CreationItemProvider extends QueriesItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Creation_type_feature",
 								"_UI_Creation_type"),
 						SqlProgramPackage.Literals.CREATION__TYPE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Creation_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Creation_name_feature",
+								"_UI_Creation_type"),
+						SqlProgramPackage.Literals.CREATION__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -127,7 +144,7 @@ public class CreationItemProvider extends QueriesItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Creation) object).getType();
+		String label = ((Creation) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Creation_type")
 				: getString("_UI_Creation_type") + " " + label;
 	}
@@ -145,6 +162,7 @@ public class CreationItemProvider extends QueriesItemProvider {
 
 		switch (notification.getFeatureID(Creation.class)) {
 		case SqlProgramPackage.CREATION__TYPE:
+		case SqlProgramPackage.CREATION__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case SqlProgramPackage.CREATION__CONSTAINTS:
