@@ -414,6 +414,15 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCreation_Name() {
+		return (EAttribute) creationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConstaint() {
 		return constaintEClass;
 	}
@@ -577,6 +586,7 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		creationEClass = createEClass(CREATION);
 		createEReference(creationEClass, CREATION__CONSTAINTS);
 		createEAttribute(creationEClass, CREATION__TYPE);
+		createEAttribute(creationEClass, CREATION__NAME);
 
 		constaintEClass = createEClass(CONSTAINT);
 		createEAttribute(constaintEClass, CONSTAINT__BODY);
@@ -686,8 +696,10 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		initEReference(getCreation_Constaints(), this.getConstaint(), null, "constaints", null, 0, -1, Creation.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCreation_Type(), ecorePackage.getEString(), "type", "table", 0, 1, Creation.class,
+		initEAttribute(getCreation_Type(), ecorePackage.getEString(), "type", "table", 1, 1, Creation.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCreation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Creation.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constaintEClass, Constaint.class, "Constaint", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

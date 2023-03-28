@@ -40,6 +40,7 @@
     <genClasses ecoreClass="sqlProgram.ecore#//Creation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Creation/constaints"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//Creation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//Creation/name"/>
     </genClasses>
     <genClasses ecoreClass="sqlProgram.ecore#//Constaint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//Constaint/body"/>

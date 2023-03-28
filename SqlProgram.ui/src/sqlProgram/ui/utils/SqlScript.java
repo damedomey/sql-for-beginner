@@ -132,8 +132,14 @@ public abstract class SqlScript {
 					script.append(table.getName())
 						.append("(\n");
 					
-					for (Column column: table.getColumns()) {
-						// TODO: add column list
+					int length = table.getColumns().size();
+					
+					for (Column column: table.getColumns()) {						
+						script.append(column.getName())
+							.append(" ")
+							.append(column.getType().getName())
+							.append(length-- > 1 ? ", " : "")
+							.append("\n");
 					}
 					
 					break; // A creation can't concern more than 1 table due to possible constraints
@@ -148,13 +154,32 @@ public abstract class SqlScript {
 			break;
 		}
 		case "index": {
-			// TODO: Generate script for index creation
+			script.append("UNIQUE INDEX ");
+			script.append(creation.getName());
+			script.append(" ON ");
+
+			for (Object object: creation.getObjects()) {
+				if (object instanceof Table) {
+					Table table = (Table) object;
+					script.append(table.getName())
+						.append("(");
+
+					int length = table.getColumns().size();
+
+					for (Column column: table.getColumns()) {
+						script.append(column.getName())
+							.append(length-- > 1 ? ", " : "");
+					}
+
+					break; // A creation can't concern more than 1 table due to possible constraints
+				}
+			}
+			script.append(");\n");
 			break;
 		}
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + creation.getType());
 		}
-		
 		
 		return script.toString();
 	}

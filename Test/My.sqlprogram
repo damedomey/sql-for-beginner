@@ -13,6 +13,13 @@
       </columns>
     </objects>
   </queries>
+  <queries xsi:type="sqlProgram:Creation" type="index" name="idx_pnom">
+    <objects xsi:type="sqlProgram:Table" name="Person">
+      <columns name="nom">
+        <type href="Library.sqlprogram#//@type.2"/>
+      </columns>
+    </objects>
+  </queries>
   <queries xsi:type="sqlProgram:Insertion">
     <objects xsi:type="sqlProgram:Table" name="Person">
       <columns name="nom">
