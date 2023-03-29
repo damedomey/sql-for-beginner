@@ -130,7 +130,7 @@ public abstract class SqlScript {
 				if (object instanceof Table) {
 					Table table = (Table) object;
 					script.append(table.getName())
-						.append("(\n");
+						.append("(\n ");
 					
 					int length = table.getColumns().size();
 					
@@ -138,8 +138,10 @@ public abstract class SqlScript {
 						script.append(column.getName())
 							.append(" ")
 							.append(column.getType().getName())
-							.append(length-- > 1 ? ", " : "")
-							.append("\n");
+							.append(" ")
+							.append(column.getConstaint().get(0).getBody())
+							.append(length-- > 1 ? ",\n " : "");
+							//.append("\n");
 					}
 					
 					break; // A creation can't concern more than 1 table due to possible constraints

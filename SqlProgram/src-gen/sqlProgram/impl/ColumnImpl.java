@@ -2,12 +2,18 @@
  */
 package sqlProgram.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import sqlProgram.Column;
+import sqlProgram.Constaint;
 import sqlProgram.SqlProgramPackage;
 import sqlProgram.Type;
 
@@ -20,6 +26,7 @@ import sqlProgram.Type;
  * </p>
  * <ul>
  *   <li>{@link sqlProgram.impl.ColumnImpl#getType <em>Type</em>}</li>
+ *   <li>{@link sqlProgram.impl.ColumnImpl#getConstaint <em>Constaint</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,6 +41,16 @@ public class ColumnImpl extends ObjectsImpl implements Column {
 	 * @ordered
 	 */
 	protected Type type;
+
+	/**
+	 * The cached value of the '{@link #getConstaint() <em>Constaint</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstaint()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Constaint> constaint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,6 +115,33 @@ public class ColumnImpl extends ObjectsImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Constaint> getConstaint() {
+		if (constaint == null) {
+			constaint = new EObjectContainmentEList<Constaint>(Constaint.class, this,
+					SqlProgramPackage.COLUMN__CONSTAINT);
+		}
+		return constaint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SqlProgramPackage.COLUMN__CONSTAINT:
+			return ((InternalEList<?>) getConstaint()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -105,6 +149,8 @@ public class ColumnImpl extends ObjectsImpl implements Column {
 			if (resolve)
 				return getType();
 			return basicGetType();
+		case SqlProgramPackage.COLUMN__CONSTAINT:
+			return getConstaint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -114,11 +160,16 @@ public class ColumnImpl extends ObjectsImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case SqlProgramPackage.COLUMN__TYPE:
 			setType((Type) newValue);
+			return;
+		case SqlProgramPackage.COLUMN__CONSTAINT:
+			getConstaint().clear();
+			getConstaint().addAll((Collection<? extends Constaint>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -135,6 +186,9 @@ public class ColumnImpl extends ObjectsImpl implements Column {
 		case SqlProgramPackage.COLUMN__TYPE:
 			setType((Type) null);
 			return;
+		case SqlProgramPackage.COLUMN__CONSTAINT:
+			getConstaint().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -149,6 +203,8 @@ public class ColumnImpl extends ObjectsImpl implements Column {
 		switch (featureID) {
 		case SqlProgramPackage.COLUMN__TYPE:
 			return type != null;
+		case SqlProgramPackage.COLUMN__CONSTAINT:
+			return constaint != null && !constaint.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

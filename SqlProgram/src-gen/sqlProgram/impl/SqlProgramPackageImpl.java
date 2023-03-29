@@ -324,6 +324,15 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getColumn_Constaint() {
+		return (EReference) columnEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getType() {
 		return typeEClass;
 	}
@@ -572,6 +581,7 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 
 		columnEClass = createEClass(COLUMN);
 		createEReference(columnEClass, COLUMN__TYPE);
+		createEReference(columnEClass, COLUMN__CONSTAINT);
 
 		typeEClass = createEClass(TYPE);
 		createEAttribute(typeEClass, TYPE__NAME);
@@ -675,6 +685,9 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		initEReference(getColumn_Type(), this.getType(), null, "type", null, 0, 1, Column.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getColumn_Constaint(), this.getConstaint(), null, "constaint", null, 0, -1, Column.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 1, 1, Type.class, !IS_TRANSIENT,

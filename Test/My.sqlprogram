@@ -4,12 +4,15 @@
     <objects xsi:type="sqlProgram:Table" name="Person">
       <columns name="nom">
         <type href="Library.sqlprogram#//@type.2"/>
+        <constaint body="NOT NULL"/>
       </columns>
       <columns name="prenom">
         <type href="Library.sqlprogram#//@type.2"/>
+        <constaint/>
       </columns>
       <columns name="age">
         <type href="Library.sqlprogram#//@type.0"/>
+        <constaint body="NOT NULL"/>
       </columns>
     </objects>
   </queries>

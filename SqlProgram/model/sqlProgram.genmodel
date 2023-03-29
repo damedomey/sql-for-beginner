@@ -26,6 +26,7 @@
     </genClasses>
     <genClasses ecoreClass="sqlProgram.ecore#//Column">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Column/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sqlProgram.ecore#//Column/constaint"/>
     </genClasses>
     <genClasses ecoreClass="sqlProgram.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//Type/name"/>
