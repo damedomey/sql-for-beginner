@@ -74,6 +74,16 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 			return createCreation();
 		case SqlProgramPackage.CONSTAINT:
 			return createConstaint();
+		case SqlProgramPackage.UPDATE:
+			return createUpdate();
+		case SqlProgramPackage.INSERTION:
+			return createInsertion();
+		case SqlProgramPackage.DELETE:
+			return createDelete();
+		case SqlProgramPackage.VALUE:
+			return createValue();
+		case SqlProgramPackage.COLUMN_VALUE:
+			return createColumnValue();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -167,6 +177,56 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 	public Constaint createConstaint() {
 		ConstaintImpl constaint = new ConstaintImpl();
 		return constaint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Update createUpdate() {
+		UpdateImpl update = new UpdateImpl();
+		return update;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Insertion createInsertion() {
+		InsertionImpl insertion = new InsertionImpl();
+		return insertion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Delete createDelete() {
+		DeleteImpl delete = new DeleteImpl();
+		return delete;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Value createValue() {
+		ValueImpl value = new ValueImpl();
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColumnValue createColumnValue() {
+		ColumnValueImpl columnValue = new ColumnValueImpl();
+		return columnValue;
 	}
 
 	/**

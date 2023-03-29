@@ -1,0 +1,11 @@
+CREATE TABLE Person {
+	id, nom, prenom
+};
+
+SELECT FROM 
+Person{
+	nom, prenom
+}, Test {
+	test
+}
+WHERE Person.id = Test.id;

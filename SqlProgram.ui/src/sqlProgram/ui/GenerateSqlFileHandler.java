@@ -9,9 +9,11 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.PlatformUI;
 
 import sqlProgram.Creation;
+import sqlProgram.Delete;
 import sqlProgram.Queries;
 import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
+import sqlProgram.Update;
 import sqlProgram.ui.utils.SqlScript;
 
 public class GenerateSqlFileHandler extends AbstractHandler implements IHandler {
@@ -32,20 +34,8 @@ public class GenerateSqlFileHandler extends AbstractHandler implements IHandler 
 	    
 	    if (selection instanceof StructuredSelection) { 	
 	    	Object firstElement = ((StructuredSelection) selection).getFirstElement();
-	        if (firstElement instanceof SqlProgram) {
-	        	SqlProgram sqlProgram = (SqlProgram) firstElement;
-	        	
-	        	StringBuilder sqlScript = new StringBuilder();
-	        	
-	        	for (Queries query: sqlProgram.getQueries()) {
-	        		if (query instanceof Selection) {
-	        			sqlScript.append(SqlScript.fromSelection((Selection) query));
-	        		} else if (query instanceof Creation){
-	        			
-	        		}
-	        	}
-	        	
-	    		SqlScript.showSaveWindow("Script SQL généré", sqlScript.toString());
+	        if (firstElement instanceof SqlProgram) {       	
+	    		SqlScript.showSaveWindow("Script SQL généré", SqlScript.buildScript((SqlProgram) firstElement));
 	        }       
 	    }
 	    
