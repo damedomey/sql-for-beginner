@@ -165,52 +165,6 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link sqlProgram.Type} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TypeItemProvider typeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link sqlProgram.Type}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTypeAdapter() {
-		if (typeItemProvider == null) {
-			typeItemProvider = new TypeItemProvider(this);
-		}
-
-		return typeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link sqlProgram.Library} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LibraryItemProvider libraryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link sqlProgram.Library}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLibraryAdapter() {
-		if (libraryItemProvider == null) {
-			libraryItemProvider = new LibraryItemProvider(this);
-		}
-
-		return libraryItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link sqlProgram.Clause} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -501,10 +455,6 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 			tableItemProvider.dispose();
 		if (columnItemProvider != null)
 			columnItemProvider.dispose();
-		if (typeItemProvider != null)
-			typeItemProvider.dispose();
-		if (libraryItemProvider != null)
-			libraryItemProvider.dispose();
 		if (clauseItemProvider != null)
 			clauseItemProvider.dispose();
 		if (creationItemProvider != null)

@@ -25,7 +25,6 @@ import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
 import sqlProgram.SqlProgramPackage;
 import sqlProgram.Table;
-import sqlProgram.Type;
 import sqlProgram.Update;
 import sqlProgram.Value;
 import sqlProgram.services.SqlDslGrammarAccess;
@@ -48,14 +47,29 @@ public class SqlDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				sequence_Clause(context, (Clause) semanticObject); 
 				return; 
 			case SqlProgramPackage.COLUMN:
-				sequence_Column(context, (Column) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getColumnOnCreationRule()) {
+					sequence_ColumnOnCreation(context, (Column) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getObjectsRule()
+						|| rule == grammarAccess.getColumnRule()) {
+					sequence_Column(context, (Column) semanticObject); 
+					return; 
+				}
+				else break;
 			case SqlProgramPackage.COLUMN_VALUE:
 				sequence_ColumnValue(context, (ColumnValue) semanticObject); 
 				return; 
 			case SqlProgramPackage.CONSTAINT:
-				sequence_Constaint(context, (Constaint) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getConstaintOnCreationRule()) {
+					sequence_ConstaintOnCreation(context, (Constaint) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getConstaintRule()) {
+					sequence_Constaint(context, (Constaint) semanticObject); 
+					return; 
+				}
+				else break;
 			case SqlProgramPackage.CREATION:
 				sequence_Creation(context, (Creation) semanticObject); 
 				return; 
@@ -72,11 +86,16 @@ public class SqlDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				sequence_SqlProgram(context, (SqlProgram) semanticObject); 
 				return; 
 			case SqlProgramPackage.TABLE:
-				sequence_Table(context, (Table) semanticObject); 
-				return; 
-			case SqlProgramPackage.TYPE:
-				sequence_Type(context, (Type) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getTableOnCreationRule()) {
+					sequence_TableOnCreation(context, (Table) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getObjectsRule()
+						|| rule == grammarAccess.getTableRule()) {
+					sequence_Table(context, (Table) semanticObject); 
+					return; 
+				}
+				else break;
 			case SqlProgramPackage.UPDATE:
 				sequence_Update(context, (Update) semanticObject); 
 				return; 
@@ -94,28 +113,50 @@ public class SqlDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Clause returns Clause
 	 *
 	 * Constraint:
-	 *     (
-	 *         (
-	 *             name='AND' | 
-	 *             name='OR' | 
-	 *             name='WHERE' | 
-	 *             name='SET' | 
-	 *             name='HAVING' | 
-	 *             name='LIMIT' | 
-	 *             name='OFFSET' | 
-	 *             name='and' | 
-	 *             name='or' | 
-	 *             name='where' | 
-	 *             name='set' | 
-	 *             name='having' | 
-	 *             name='limit' | 
-	 *             name='offset'
-	 *         ) 
-	 *         body=ComplexString
-	 *     )
+	 *     (name=EString body=ComplexString)
 	 * </pre>
 	 */
 	protected void sequence_Clause(ISerializationContext context, Clause semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SqlProgramPackage.Literals.CLAUSE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SqlProgramPackage.Literals.CLAUSE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SqlProgramPackage.Literals.CLAUSE__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SqlProgramPackage.Literals.CLAUSE__BODY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getClauseAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getClauseAccess().getBodyComplexStringParserRuleCall_1_0(), semanticObject.getBody());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ColumnOnCreation returns Column
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         (
+	 *             type='int' | 
+	 *             type='float' | 
+	 *             type='varchar(100)' | 
+	 *             type='char(100)' | 
+	 *             type='text' | 
+	 *             type='date' | 
+	 *             type='INT' | 
+	 *             type='FLOAT' | 
+	 *             type='VARCHAR(100)' | 
+	 *             type='CHAR(100)' | 
+	 *             type='TEXT' | 
+	 *             type='DATE'
+	 *         ) 
+	 *         constaints+=ConstaintOnCreation?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_ColumnOnCreation(ISerializationContext context, Column semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -147,11 +188,37 @@ public class SqlDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Column returns Column
 	 *
 	 * Constraint:
-	 *     (name=EString type=[Type|EString]?)
+	 *     name=EString
 	 * </pre>
 	 */
 	protected void sequence_Column(ISerializationContext context, Column semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SqlProgramPackage.Literals.OBJECTS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SqlProgramPackage.Literals.OBJECTS__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getColumnAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ConstaintOnCreation returns Constaint
+	 *
+	 * Constraint:
+	 *     body=ComplexString
+	 * </pre>
+	 */
+	protected void sequence_ConstaintOnCreation(ISerializationContext context, Constaint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SqlProgramPackage.Literals.CONSTAINT__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SqlProgramPackage.Literals.CONSTAINT__BODY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConstaintOnCreationAccess().getBodyComplexStringParserRuleCall_0(), semanticObject.getBody());
+		feeder.finish();
 	}
 	
 	
@@ -182,7 +249,7 @@ public class SqlDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Creation returns Creation
 	 *
 	 * Constraint:
-	 *     ((type='TABLE' objects+=Table (constaints+=Constaint constaints+=Constaint*)?) | (type='INDEX' objects+=Table))
+	 *     ((type='TABLE' objects+=TableOnCreation (constaints+=Constaint constaints+=Constaint*)?) | (type='INDEX' name=EString? objects+=Table))
 	 * </pre>
 	 */
 	protected void sequence_Creation(ISerializationContext context, Creation semanticObject) {
@@ -252,6 +319,20 @@ public class SqlDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     TableOnCreation returns Table
+	 *
+	 * Constraint:
+	 *     (name=EString columns+=ColumnOnCreation columns+=ColumnOnCreation*)
+	 * </pre>
+	 */
+	protected void sequence_TableOnCreation(ISerializationContext context, Table semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Objects returns Table
 	 *     Table returns Table
 	 *
@@ -260,30 +341,6 @@ public class SqlDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * </pre>
 	 */
 	protected void sequence_Table(ISerializationContext context, Table semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Type returns Type
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='int' | 
-	 *         name='INT' | 
-	 *         name='double' | 
-	 *         name='DOUBLE' | 
-	 *         name='float' | 
-	 *         name='FLOAT' | 
-	 *         name='date' | 
-	 *         name='DATE' | 
-	 *         name=EString
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

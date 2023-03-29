@@ -114,20 +114,6 @@ public class SqlProgramSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case SqlProgramPackage.TYPE: {
-			Type type = (Type) theEObject;
-			T result = caseType(type);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case SqlProgramPackage.LIBRARY: {
-			Library library = (Library) theEObject;
-			T result = caseLibrary(library);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case SqlProgramPackage.CLAUSE: {
 			Clause clause = (Clause) theEObject;
 			T result = caseClause(clause);
@@ -284,36 +270,6 @@ public class SqlProgramSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColumn(Column object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseType(Type object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Library</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Library</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLibrary(Library object) {
 		return null;
 	}
 

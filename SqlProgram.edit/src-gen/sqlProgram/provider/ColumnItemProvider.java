@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import sqlProgram.Column;
 import sqlProgram.SqlProgramFactory;
@@ -60,7 +61,8 @@ public class ColumnItemProvider extends ObjectsItemProvider {
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 						getResourceLocator(), getString("_UI_Column_type_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Column_type_feature", "_UI_Column_type"),
-						SqlProgramPackage.Literals.COLUMN__TYPE, true, false, true, null, null, null));
+						SqlProgramPackage.Literals.COLUMN__TYPE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -139,6 +141,9 @@ public class ColumnItemProvider extends ObjectsItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Column.class)) {
+		case SqlProgramPackage.COLUMN__TYPE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		case SqlProgramPackage.COLUMN__CONSTAINTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;

@@ -31,5 +31,5 @@ class SqlDslFormatter extends AbstractFormatter2 {
 		}
 	}
 	
-	// TODO: implement for Creation, Update, Insertion, Delete, Table, Value
+	// TODO: implement for Creation, Update, Insertion, Delete, Table, Column, Value
 }

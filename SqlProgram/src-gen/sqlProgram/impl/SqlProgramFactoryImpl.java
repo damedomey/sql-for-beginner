@@ -64,10 +64,6 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 			return createTable();
 		case SqlProgramPackage.COLUMN:
 			return createColumn();
-		case SqlProgramPackage.TYPE:
-			return createType();
-		case SqlProgramPackage.LIBRARY:
-			return createLibrary();
 		case SqlProgramPackage.CLAUSE:
 			return createClause();
 		case SqlProgramPackage.CREATION:
@@ -127,26 +123,6 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 	public Column createColumn() {
 		ColumnImpl column = new ColumnImpl();
 		return column;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type createType() {
-		TypeImpl type = new TypeImpl();
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Library createLibrary() {
-		LibraryImpl library = new LibraryImpl();
-		return library;
 	}
 
 	/**

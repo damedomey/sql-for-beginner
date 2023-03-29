@@ -97,16 +97,6 @@ public class SqlProgramAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseType(Type object) {
-			return createTypeAdapter();
-		}
-
-		@Override
-		public Adapter caseLibrary(Library object) {
-			return createLibraryAdapter();
-		}
-
-		@Override
 		public Adapter caseClause(Clause object) {
 			return createClauseAdapter();
 		}
@@ -246,34 +236,6 @@ public class SqlProgramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColumnAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link sqlProgram.Type <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see sqlProgram.Type
-	 * @generated
-	 */
-	public Adapter createTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link sqlProgram.Library <em>Library</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see sqlProgram.Library
-	 * @generated
-	 */
-	public Adapter createLibraryAdapter() {
 		return null;
 	}
 
