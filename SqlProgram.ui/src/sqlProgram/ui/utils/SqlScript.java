@@ -130,16 +130,23 @@ public abstract class SqlScript {
 				if (object instanceof Table) {
 					Table table = (Table) object;
 					script.append(table.getName())
-						.append("(\n");
+						.append("(\n ");
 					
 					int length = table.getColumns().size();
 					
 					for (Column column: table.getColumns()) {						
-						script.append(column.getName())
+						script.append("    ")
+							.append(column.getName())
 							.append(" ")
-							.append(column.getType().getName())
-							.append(length-- > 1 ? ", " : "")
-							.append("\n");
+							.append(column.getType().getName());
+						
+						for (Constaint contraint: column.getConstaints()) {
+							script.append(" ")
+								.append(contraint.getBody());
+						}
+						
+						if (length-- > 1)
+							script.append(", \n");
 					}
 					
 					break; // A creation can't concern more than 1 table due to possible constraints
@@ -147,7 +154,10 @@ public abstract class SqlScript {
 			}
 			
 			for (Constaint constraint: creation.getConstaints()) {
-				// TODO: add constraint
+				script.append(", \n")
+				.append("    CONSTRAINT ")
+				.append("   ")
+				.append(constraint.getBody());
 			}
 			
 			script.append("\n);\n");

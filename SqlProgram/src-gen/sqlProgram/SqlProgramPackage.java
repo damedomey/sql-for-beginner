@@ -288,13 +288,22 @@ public interface SqlProgramPackage extends EPackage {
 	int COLUMN__TYPE = OBJECTS_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Constaints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__CONSTAINTS = OBJECTS_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = OBJECTS_FEATURE_COUNT + 1;
+	int COLUMN_FEATURE_COUNT = OBJECTS_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Column</em>' class.
@@ -865,6 +874,17 @@ public interface SqlProgramPackage extends EPackage {
 	EReference getColumn_Type();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link sqlProgram.Column#getConstaints <em>Constaints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Constaints</em>'.
+	 * @see sqlProgram.Column#getConstaints()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EReference getColumn_Constaints();
+
+	/**
 	 * Returns the meta object for class '{@link sqlProgram.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1237,6 +1257,14 @@ public interface SqlProgramPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLUMN__TYPE = eINSTANCE.getColumn_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Constaints</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMN__CONSTAINTS = eINSTANCE.getColumn_Constaints();
 
 		/**
 		 * The meta object literal for the '{@link sqlProgram.impl.TypeImpl <em>Type</em>}' class.
