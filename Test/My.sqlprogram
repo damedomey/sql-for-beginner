@@ -35,8 +35,8 @@
       </columns>
     </objects>
     <values>
-      <columnvalues value="firstname"/>
-      <columnvalues value="lastname"/>
+      <columnvalues value="r"/>
+      <columnvalues value="d"/>
       <columnvalues value="81"/>
     </values>
     <values>
