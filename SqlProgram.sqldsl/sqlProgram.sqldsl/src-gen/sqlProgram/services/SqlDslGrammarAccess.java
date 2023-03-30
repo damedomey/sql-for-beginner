@@ -58,32 +58,36 @@ public class SqlDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sqlProgram.SqlDsl.Queries");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSelectionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cCreationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cUpdateParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cInsertionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cDeleteParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cQuickSelectionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cCreationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cUpdateParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cInsertionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDeleteParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Queries returns Queries:
-		//    Selection | Creation | Update | Insertion | Delete;
+		//    Selection | QuickSelection | Creation | Update | Insertion | Delete;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Selection | Creation | Update | Insertion | Delete
+		//Selection | QuickSelection | Creation | Update | Insertion | Delete
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Selection
 		public RuleCall getSelectionParserRuleCall_0() { return cSelectionParserRuleCall_0; }
 		
+		//QuickSelection
+		public RuleCall getQuickSelectionParserRuleCall_1() { return cQuickSelectionParserRuleCall_1; }
+		
 		//Creation
-		public RuleCall getCreationParserRuleCall_1() { return cCreationParserRuleCall_1; }
+		public RuleCall getCreationParserRuleCall_2() { return cCreationParserRuleCall_2; }
 		
 		//Update
-		public RuleCall getUpdateParserRuleCall_2() { return cUpdateParserRuleCall_2; }
+		public RuleCall getUpdateParserRuleCall_3() { return cUpdateParserRuleCall_3; }
 		
 		//Insertion
-		public RuleCall getInsertionParserRuleCall_3() { return cInsertionParserRuleCall_3; }
+		public RuleCall getInsertionParserRuleCall_4() { return cInsertionParserRuleCall_4; }
 		
 		//Delete
-		public RuleCall getDeleteParserRuleCall_4() { return cDeleteParserRuleCall_4; }
+		public RuleCall getDeleteParserRuleCall_5() { return cDeleteParserRuleCall_5; }
 	}
 	public class ObjectsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sqlProgram.SqlDsl.Objects");
@@ -103,6 +107,72 @@ public class SqlDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//Column
 		public RuleCall getColumnParserRuleCall_1() { return cColumnParserRuleCall_1; }
+	}
+	public class QuickSelectionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sqlProgram.SqlDsl.QuickSelection");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cQuickSelectionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cMethodAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMethodEStringParserRuleCall_1_0 = (RuleCall)cMethodAssignment_1.eContents().get(0);
+		private final Keyword cFROMKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cObjectsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cObjectsTableParserRuleCall_3_0 = (RuleCall)cObjectsAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cObjectsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cObjectsTableParserRuleCall_4_1_0 = (RuleCall)cObjectsAssignment_4_1.eContents().get(0);
+		private final Assignment cClausesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cClausesClauseParserRuleCall_5_0 = (RuleCall)cClausesAssignment_5.eContents().get(0);
+		
+		//QuickSelection returns QuickSelection:
+		//    {QuickSelection}
+		//    method=EString 'FROM'
+		//        objects+=Table ("," objects+=Table)*
+		//        (clauses+=Clause)*
+		//    ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{QuickSelection}
+		//method=EString 'FROM'
+		//    objects+=Table ("," objects+=Table)*
+		//    (clauses+=Clause)*
+		public Group getGroup() { return cGroup; }
+		
+		//{QuickSelection}
+		public Action getQuickSelectionAction_0() { return cQuickSelectionAction_0; }
+		
+		//method=EString
+		public Assignment getMethodAssignment_1() { return cMethodAssignment_1; }
+		
+		//EString
+		public RuleCall getMethodEStringParserRuleCall_1_0() { return cMethodEStringParserRuleCall_1_0; }
+		
+		//'FROM'
+		public Keyword getFROMKeyword_2() { return cFROMKeyword_2; }
+		
+		//objects+=Table
+		public Assignment getObjectsAssignment_3() { return cObjectsAssignment_3; }
+		
+		//Table
+		public RuleCall getObjectsTableParserRuleCall_3_0() { return cObjectsTableParserRuleCall_3_0; }
+		
+		//("," objects+=Table)*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//","
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		
+		//objects+=Table
+		public Assignment getObjectsAssignment_4_1() { return cObjectsAssignment_4_1; }
+		
+		//Table
+		public RuleCall getObjectsTableParserRuleCall_4_1_0() { return cObjectsTableParserRuleCall_4_1_0; }
+		
+		//(clauses+=Clause)*
+		public Assignment getClausesAssignment_5() { return cClausesAssignment_5; }
+		
+		//Clause
+		public RuleCall getClausesClauseParserRuleCall_5_0() { return cClausesClauseParserRuleCall_5_0; }
 	}
 	public class SelectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sqlProgram.SqlDsl.Selection");
@@ -1005,6 +1075,7 @@ public class SqlDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	private final SqlProgramElements pSqlProgram;
 	private final QueriesElements pQueries;
 	private final ObjectsElements pObjects;
+	private final QuickSelectionElements pQuickSelection;
 	private final SelectionElements pSelection;
 	private final CreationElements pCreation;
 	private final UpdateElements pUpdate;
@@ -1035,6 +1106,7 @@ public class SqlDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		this.pSqlProgram = new SqlProgramElements();
 		this.pQueries = new QueriesElements();
 		this.pObjects = new ObjectsElements();
+		this.pQuickSelection = new QuickSelectionElements();
 		this.pSelection = new SelectionElements();
 		this.pCreation = new CreationElements();
 		this.pUpdate = new UpdateElements();
@@ -1092,7 +1164,7 @@ public class SqlDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Queries returns Queries:
-	//    Selection | Creation | Update | Insertion | Delete;
+	//    Selection | QuickSelection | Creation | Update | Insertion | Delete;
 	public QueriesElements getQueriesAccess() {
 		return pQueries;
 	}
@@ -1109,6 +1181,20 @@ public class SqlDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	public ParserRule getObjectsRule() {
 		return getObjectsAccess().getRule();
+	}
+	
+	//QuickSelection returns QuickSelection:
+	//    {QuickSelection}
+	//    method=EString 'FROM'
+	//        objects+=Table ("," objects+=Table)*
+	//        (clauses+=Clause)*
+	//    ;
+	public QuickSelectionElements getQuickSelectionAccess() {
+		return pQuickSelection;
+	}
+	
+	public ParserRule getQuickSelectionRule() {
+		return getQuickSelectionAccess().getRule();
 	}
 	
 	//Selection returns Selection:

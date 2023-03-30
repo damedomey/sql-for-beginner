@@ -21,6 +21,7 @@ import sqlProgram.Constaint;
 import sqlProgram.Creation;
 import sqlProgram.Delete;
 import sqlProgram.Insertion;
+import sqlProgram.QuickSelection;
 import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
 import sqlProgram.SqlProgramPackage;
@@ -78,6 +79,9 @@ public class SqlDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case SqlProgramPackage.INSERTION:
 				sequence_Insertion(context, (Insertion) semanticObject); 
+				return; 
+			case SqlProgramPackage.QUICK_SELECTION:
+				sequence_QuickSelection(context, (QuickSelection) semanticObject); 
 				return; 
 			case SqlProgramPackage.SELECTION:
 				sequence_Selection(context, (Selection) semanticObject); 
@@ -283,6 +287,21 @@ public class SqlDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * </pre>
 	 */
 	protected void sequence_Insertion(ISerializationContext context, Insertion semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Queries returns QuickSelection
+	 *     QuickSelection returns QuickSelection
+	 *
+	 * Constraint:
+	 *     (method=EString objects+=Table objects+=Table* clauses+=Clause*)
+	 * </pre>
+	 */
+	protected void sequence_QuickSelection(ISerializationContext context, QuickSelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

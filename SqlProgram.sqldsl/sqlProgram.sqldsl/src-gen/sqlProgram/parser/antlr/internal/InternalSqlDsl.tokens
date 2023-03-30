@@ -1,7 +1,7 @@
 '('=40
 ')'=41
 '*'=43
-','=14
+','=13
 '.'=42
 ';'=11
 '<'=45
@@ -13,13 +13,13 @@
 'DATE'=37
 'DELETE'=25
 'FLOAT'=33
-'FROM'=13
+'FROM'=12
 'INDEX'=17
 'INSERT'=20
 'INT'=32
 'INTO'=21
 'ON'=18
-'SELECT'=12
+'SELECT'=14
 'TABLE'=16
 'TEXT'=36
 'UPDATE'=19

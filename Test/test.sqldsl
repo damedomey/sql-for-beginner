@@ -20,3 +20,10 @@ SELECT FROM Person {
 	nom, prenom
 } where nom = 'david';
 
+COUNT FROM Person {
+	nom, prenom
+} where nom = 'david';
+
+SUM FROM Person {
+	age
+};

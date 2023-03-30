@@ -8,10 +8,17 @@ SqlProgram returns SqlProgram:
 	{SqlProgram} (queries+=Queries ";")*;
 	
 Queries returns Queries:
-	Selection | Creation | Update | Insertion | Delete;
+	Selection | QuickSelection | Creation | Update | Insertion | Delete;
 
 Objects returns Objects:
 	Table | Column;
+
+QuickSelection returns QuickSelection:
+	{QuickSelection}
+	method=EString 'FROM' 
+		objects+=Table ("," objects+=Table)*
+		(clauses+=Clause)*
+	;
 
 Selection returns Selection:
 	{Selection}

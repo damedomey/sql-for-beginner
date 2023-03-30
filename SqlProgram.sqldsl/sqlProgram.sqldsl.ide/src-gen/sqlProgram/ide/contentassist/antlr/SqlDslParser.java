@@ -38,6 +38,8 @@ public class SqlDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getColumnOnCreationAccess().getTypeAlternatives_2_0(), "rule__ColumnOnCreation__TypeAlternatives_2_0");
 			builder.put(grammarAccess.getSqlProgramAccess().getGroup(), "rule__SqlProgram__Group__0");
 			builder.put(grammarAccess.getSqlProgramAccess().getGroup_1(), "rule__SqlProgram__Group_1__0");
+			builder.put(grammarAccess.getQuickSelectionAccess().getGroup(), "rule__QuickSelection__Group__0");
+			builder.put(grammarAccess.getQuickSelectionAccess().getGroup_4(), "rule__QuickSelection__Group_4__0");
 			builder.put(grammarAccess.getSelectionAccess().getGroup(), "rule__Selection__Group__0");
 			builder.put(grammarAccess.getSelectionAccess().getGroup_4(), "rule__Selection__Group_4__0");
 			builder.put(grammarAccess.getCreationAccess().getGroup(), "rule__Creation__Group__0");
@@ -70,6 +72,10 @@ public class SqlDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getComplexStringAccess().getGroup_2(), "rule__ComplexString__Group_2__0");
 			builder.put(grammarAccess.getComplexStringAccess().getGroup_2_2(), "rule__ComplexString__Group_2_2__0");
 			builder.put(grammarAccess.getSqlProgramAccess().getQueriesAssignment_1_0(), "rule__SqlProgram__QueriesAssignment_1_0");
+			builder.put(grammarAccess.getQuickSelectionAccess().getMethodAssignment_1(), "rule__QuickSelection__MethodAssignment_1");
+			builder.put(grammarAccess.getQuickSelectionAccess().getObjectsAssignment_3(), "rule__QuickSelection__ObjectsAssignment_3");
+			builder.put(grammarAccess.getQuickSelectionAccess().getObjectsAssignment_4_1(), "rule__QuickSelection__ObjectsAssignment_4_1");
+			builder.put(grammarAccess.getQuickSelectionAccess().getClausesAssignment_5(), "rule__QuickSelection__ClausesAssignment_5");
 			builder.put(grammarAccess.getSelectionAccess().getObjectsAssignment_3(), "rule__Selection__ObjectsAssignment_3");
 			builder.put(grammarAccess.getSelectionAccess().getObjectsAssignment_4_1(), "rule__Selection__ObjectsAssignment_4_1");
 			builder.put(grammarAccess.getSelectionAccess().getClausesAssignment_5(), "rule__Selection__ClausesAssignment_5");

@@ -137,40 +137,161 @@ ruleQueries returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getQueriesAccess().getCreationParserRuleCall_1());
+			newCompositeNode(grammarAccess.getQueriesAccess().getQuickSelectionParserRuleCall_1());
 		}
-		this_Creation_1=ruleCreation
+		this_QuickSelection_1=ruleQuickSelection
 		{
-			$current = $this_Creation_1.current;
+			$current = $this_QuickSelection_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getQueriesAccess().getUpdateParserRuleCall_2());
+			newCompositeNode(grammarAccess.getQueriesAccess().getCreationParserRuleCall_2());
 		}
-		this_Update_2=ruleUpdate
+		this_Creation_2=ruleCreation
 		{
-			$current = $this_Update_2.current;
+			$current = $this_Creation_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getQueriesAccess().getInsertionParserRuleCall_3());
+			newCompositeNode(grammarAccess.getQueriesAccess().getUpdateParserRuleCall_3());
 		}
-		this_Insertion_3=ruleInsertion
+		this_Update_3=ruleUpdate
 		{
-			$current = $this_Insertion_3.current;
+			$current = $this_Update_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getQueriesAccess().getDeleteParserRuleCall_4());
+			newCompositeNode(grammarAccess.getQueriesAccess().getInsertionParserRuleCall_4());
 		}
-		this_Delete_4=ruleDelete
+		this_Insertion_4=ruleInsertion
 		{
-			$current = $this_Delete_4.current;
+			$current = $this_Insertion_4.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getQueriesAccess().getDeleteParserRuleCall_5());
+		}
+		this_Delete_5=ruleDelete
+		{
+			$current = $this_Delete_5.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleQuickSelection
+entryRuleQuickSelection returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getQuickSelectionRule()); }
+	iv_ruleQuickSelection=ruleQuickSelection
+	{ $current=$iv_ruleQuickSelection.current; }
+	EOF;
+
+// Rule QuickSelection
+ruleQuickSelection returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getQuickSelectionAccess().getQuickSelectionAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getQuickSelectionAccess().getMethodEStringParserRuleCall_1_0());
+				}
+				lv_method_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getQuickSelectionRule());
+					}
+					set(
+						$current,
+						"method",
+						lv_method_1_0,
+						"sqlProgram.SqlDsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='FROM'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getQuickSelectionAccess().getFROMKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getQuickSelectionAccess().getObjectsTableParserRuleCall_3_0());
+				}
+				lv_objects_3_0=ruleTable
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getQuickSelectionRule());
+					}
+					add(
+						$current,
+						"objects",
+						lv_objects_3_0,
+						"sqlProgram.SqlDsl.Table");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_4=','
+			{
+				newLeafNode(otherlv_4, grammarAccess.getQuickSelectionAccess().getCommaKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getQuickSelectionAccess().getObjectsTableParserRuleCall_4_1_0());
+					}
+					lv_objects_5_0=ruleTable
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getQuickSelectionRule());
+						}
+						add(
+							$current,
+							"objects",
+							lv_objects_5_0,
+							"sqlProgram.SqlDsl.Table");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getQuickSelectionAccess().getClausesClauseParserRuleCall_5_0());
+				}
+				lv_clauses_6_0=ruleClause
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getQuickSelectionRule());
+					}
+					add(
+						$current,
+						"clauses",
+						lv_clauses_6_0,
+						"sqlProgram.SqlDsl.Clause");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
