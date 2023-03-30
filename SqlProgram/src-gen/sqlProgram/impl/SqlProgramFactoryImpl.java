@@ -80,6 +80,8 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 			return createValue();
 		case SqlProgramPackage.COLUMN_VALUE:
 			return createColumnValue();
+		case SqlProgramPackage.QUICK_SELECTION:
+			return createQuickSelection();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -203,6 +205,16 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 	public ColumnValue createColumnValue() {
 		ColumnValueImpl columnValue = new ColumnValueImpl();
 		return columnValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuickSelection createQuickSelection() {
+		QuickSelectionImpl quickSelection = new QuickSelectionImpl();
+		return quickSelection;
 	}
 
 	/**

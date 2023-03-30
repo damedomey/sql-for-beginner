@@ -349,6 +349,29 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link sqlProgram.QuickSelection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QuickSelectionItemProvider quickSelectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sqlProgram.QuickSelection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQuickSelectionAdapter() {
+		if (quickSelectionItemProvider == null) {
+			quickSelectionItemProvider = new QuickSelectionItemProvider(this);
+		}
+
+		return quickSelectionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -471,6 +494,8 @@ public class SqlProgramItemProviderAdapterFactory extends SqlProgramAdapterFacto
 			valueItemProvider.dispose();
 		if (columnValueItemProvider != null)
 			columnValueItemProvider.dispose();
+		if (quickSelectionItemProvider != null)
+			quickSelectionItemProvider.dispose();
 	}
 
 }

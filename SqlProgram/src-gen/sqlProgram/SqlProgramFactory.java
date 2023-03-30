@@ -130,6 +130,15 @@ public interface SqlProgramFactory extends EFactory {
 	ColumnValue createColumnValue();
 
 	/**
+	 * Returns a new object of class '<em>Quick Selection</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Quick Selection</em>'.
+	 * @generated
+	 */
+	QuickSelection createQuickSelection();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

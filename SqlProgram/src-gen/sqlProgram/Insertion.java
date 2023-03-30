@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Insertion extends Queries {
-
 	/**
 	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
 	 * The list contents are of type {@link sqlProgram.Value}.
@@ -33,4 +32,5 @@ public interface Insertion extends Queries {
 	 * @generated
 	 */
 	EList<Value> getValues();
+
 } // Insertion

@@ -22,6 +22,17 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Column extends Objects {
+	/**
+	 * Returns the value of the '<em><b>Constaints</b></em>' containment reference list.
+	 * The list contents are of type {@link sqlProgram.Constaint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constaints</em>' containment reference list.
+	 * @see sqlProgram.SqlProgramPackage#getColumn_Constaints()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constaint> getConstaints();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -45,15 +56,4 @@ public interface Column extends Objects {
 	 */
 	void setType(String value);
 
-	/**
-	 * Returns the value of the '<em><b>Constaints</b></em>' containment reference list.
-	 * The list contents are of type {@link sqlProgram.Constaint}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constaints</em>' containment reference list.
-	 * @see sqlProgram.SqlProgramPackage#getColumn_Constaints()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constaint> getConstaints();
 } // Column

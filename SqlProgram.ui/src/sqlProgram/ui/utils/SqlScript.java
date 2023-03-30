@@ -29,6 +29,7 @@ import sqlProgram.Creation;
 import sqlProgram.Delete;
 import sqlProgram.Insertion;
 import sqlProgram.Queries;
+import sqlProgram.QuickSelection;
 import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
 import sqlProgram.Table;
@@ -75,7 +76,15 @@ public abstract class SqlScript {
 				
 				for (Column column: table.getColumns()) {
 					selectRow +=  selectRow == "SELECT " ? "":", ";
-					selectRow += table.getName() + "." + column.getName();
+					if(!(selection instanceof QuickSelection)) {
+						selectRow += table.getName() + "." + column.getName();
+					} else {
+						String method = ((QuickSelection)selection).getMethod().toUpperCase();
+						selectRow += method + "(" +
+								table.getName() + "." + column.getName() 
+								+ ") as " + method + "_" + column.getName();
+					}
+					
 				}
 				
 				fromRow +=  fromRow == "" ? tabulation + "FROM ":", ";
@@ -140,7 +149,7 @@ public abstract class SqlScript {
 						script.append(tabulation)
 							.append(column.getName())
 							.append(" ")
-							.append(column.getType().getName());
+							.append(column.getType());
 						
 						for (Constaint contraint: column.getConstaints()) {
 							script.append(" ")
@@ -317,6 +326,12 @@ public abstract class SqlScript {
 		}
 		script.append(";\n");
 		
+		return script.toString();
+	}
+	
+	public static String fromQuickSelection(QuickSelection quick) {
+		StringBuilder script = new StringBuilder();
+		script.append("qsdf");
 		return script.toString();
 	}
 	

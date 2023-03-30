@@ -55,5 +55,8 @@
     <genClasses ecoreClass="sqlProgram.ecore#//ColumnValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//ColumnValue/value"/>
     </genClasses>
+    <genClasses ecoreClass="sqlProgram.ecore#//QuickSelection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sqlProgram.ecore#//QuickSelection/method"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

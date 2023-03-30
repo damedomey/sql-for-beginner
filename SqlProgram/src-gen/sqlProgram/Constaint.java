@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Constaint extends EObject {
-
 	/**
 	 * Returns the value of the '<em><b>Body</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -43,4 +42,5 @@ public interface Constaint extends EObject {
 	 * @generated
 	 */
 	void setBody(String value);
+
 } // Constaint

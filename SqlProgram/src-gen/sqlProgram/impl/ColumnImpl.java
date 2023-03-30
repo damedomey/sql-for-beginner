@@ -3,15 +3,20 @@
 package sqlProgram.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import sqlProgram.Column;
 import sqlProgram.Constaint;
 import sqlProgram.SqlProgramPackage;
@@ -85,6 +90,19 @@ public class ColumnImpl extends ObjectsImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Constaint> getConstaints() {
+		if (constaints == null) {
+			constaints = new EObjectContainmentEList<Constaint>(Constaint.class, this,
+					SqlProgramPackage.COLUMN__CONSTAINTS);
+		}
+		return constaints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getType() {
 		return type;
 	}
@@ -99,19 +117,6 @@ public class ColumnImpl extends ObjectsImpl implements Column {
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SqlProgramPackage.COLUMN__TYPE, oldType, type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constaint> getConstaints() {
-		if (constaints == null) {
-			constaints = new EObjectContainmentEList<Constaint>(Constaint.class, this,
-					SqlProgramPackage.COLUMN__CONSTAINTS);
-		}
-		return constaints;
 	}
 
 	/**
