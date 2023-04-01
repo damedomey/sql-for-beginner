@@ -29,6 +29,7 @@ import sqlProgram.Creation;
 import sqlProgram.Delete;
 import sqlProgram.Insertion;
 import sqlProgram.Queries;
+import sqlProgram.QuickSelection;
 import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
 import sqlProgram.Table;
@@ -36,6 +37,8 @@ import sqlProgram.Update;
 import sqlProgram.Value;
 
 public abstract class SqlScript {
+	private static String tabulation = "    "; // instead of '\t' because it's too big
+	
 	public static String buildScript(SqlProgram rootElement) {
 		SqlProgram sqlProgram = (SqlProgram) rootElement;
     	
@@ -65,7 +68,7 @@ public abstract class SqlScript {
 	 */
 	public static String fromSelection(Selection selection) {
 		StringBuilder script = new StringBuilder();
-		String selectRow = "SELECT ", fromRow = "FROM ", clauseRow = "";
+		String selectRow = "SELECT ", fromRow = "", clauseRow = "";
 
 		for (Object object: selection.getObjects()) {
 			if (object instanceof Table) {
@@ -73,10 +76,18 @@ public abstract class SqlScript {
 				
 				for (Column column: table.getColumns()) {
 					selectRow +=  selectRow == "SELECT " ? "":", ";
-					selectRow += table.getName() + "." + column.getName();
+					if(!(selection instanceof QuickSelection)) {
+						selectRow += table.getName() + "." + column.getName();
+					} else {
+						String method = ((QuickSelection)selection).getMethod().toUpperCase();
+						selectRow += method + "(" +
+								table.getName() + "." + column.getName() 
+								+ ") as " + method + "_" + column.getName();
+					}
+					
 				}
 				
-				fromRow +=  fromRow == "FROM " ? "":", ";
+				fromRow +=  fromRow == "" ? tabulation + "FROM ":", ";
 				fromRow += table.getName();
 			}
 		}
@@ -88,12 +99,12 @@ public abstract class SqlScript {
 			case "having":
 			case "limit":
 			case "offset": {
-				clauseRow += clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
+				clauseRow += tabulation + clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
 				break;
 			}
 			case "and":
 			case "or": {
-				clauseRow += "    " + clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
+				clauseRow += tabulation + tabulation + clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
 				break;
 			}
 			default:
@@ -130,15 +141,15 @@ public abstract class SqlScript {
 				if (object instanceof Table) {
 					Table table = (Table) object;
 					script.append(table.getName())
-						.append("(\n ");
+						.append("(\n");
 					
 					int length = table.getColumns().size();
 					
 					for (Column column: table.getColumns()) {						
-						script.append("    ")
+						script.append(tabulation)
 							.append(column.getName())
 							.append(" ")
-							.append(column.getType().getName());
+							.append(column.getType());
 						
 						for (Constaint contraint: column.getConstaints()) {
 							script.append(" ")
@@ -155,16 +166,16 @@ public abstract class SqlScript {
 			
 			for (Constaint constraint: creation.getConstaints()) {
 				script.append(", \n")
-				.append("    CONSTRAINT ")
-				.append("   ")
-				.append(constraint.getBody());
+					.append(tabulation)
+					.append("CONSTRAINT ")
+					.append(constraint.getBody());
 			}
 			
 			script.append("\n);\n");
 			break;
 		}
 		case "index": {
-			script.append("UNIQUE INDEX ");
+			script.append("UNIQUE INDEX "); // TODO: Allow simple index creation
 			script.append(creation.getName());
 			script.append(" ON ");
 
@@ -231,11 +242,12 @@ public abstract class SqlScript {
 				valueRow += columValue.getValue();
 			}
 			
-			values +=  values == "" ? "":", ";
+			values +=  (values == "") ? "": (", \n" + tabulation + tabulation);
 			values += "(" + valueRow + ")";
 		}
 		
-		script.append("VALUES ")
+		script.append(tabulation)
+			.append("VALUES ")
 			.append(values)
 			.append(";")
 			.append("\n");
@@ -261,12 +273,12 @@ public abstract class SqlScript {
 			switch (clause.getName().trim().toLowerCase()) {
 			case "set":
 			case "where": {
-				whereRow += clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
+				whereRow += tabulation + clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
 				break;
 			}
 			case "and":
 			case "or": {
-				whereRow += "    " + clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
+				whereRow += tabulation + clause.getName().toUpperCase() + " " + clause.getBody() + "\n";
 				break;
 			}
 			default:
@@ -314,6 +326,12 @@ public abstract class SqlScript {
 		}
 		script.append(";\n");
 		
+		return script.toString();
+	}
+	
+	public static String fromQuickSelection(QuickSelection quick) {
+		StringBuilder script = new StringBuilder();
+		script.append("qsdf");
 		return script.toString();
 	}
 	

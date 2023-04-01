@@ -6,12 +6,19 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 SqlProgram returns SqlProgram:
 	{SqlProgram} (queries+=Queries ";")*;
-
+	
 Queries returns Queries:
-	Selection | Creation | Update | Insertion | Delete;
+	Selection | QuickSelection | Creation | Update | Insertion | Delete;
 
 Objects returns Objects:
 	Table | Column;
+
+QuickSelection returns QuickSelection:
+	{QuickSelection}
+	method=EString 'FROM' 
+		objects+=Table ("," objects+=Table)*
+		(clauses+=Clause)*
+	;
 
 Selection returns Selection:
 	{Selection}
@@ -25,15 +32,15 @@ Creation returns Creation:
 	'CREATE' (
 		// table creation concrete syntax
 		(
-			type='TABLE' objects+=Table
+			type='TABLE' objects+=TableOnCreation
 			(constaints+=Constaint ( "," constaints+=Constaint)*)?
 		) |
 		// index creation concrete syntax
 		(
-			type='INDEX' objects+=Table
+			type='INDEX' (name=EString)? 'ON' objects+=Table
 		)	
 	);
-
+	
 Update returns Update:
 	{Update}
 	'UPDATE' objects+=Table
@@ -42,13 +49,13 @@ Update returns Update:
 Insertion returns Insertion:
 	{Insertion}
 	'INSERT' 'INTO' objects+=Table
-	values+=Value ( "," values+=Value)*;
+	'VALUES' '{' values+=Value ( "," values+=Value)*'}';
 
 Delete returns Delete:
 	{Delete}
 	'DELETE' 'FROM' objects+=Table
 	(clauses+=Clause ( "," clauses+=Clause)*)?;
-
+	
 EString returns ecore::EString:
 	STRING | ID;
 
@@ -58,24 +65,37 @@ Table returns Table:
 	'{'
 		(columns+=Column ( "," columns+=Column)*)?
 	'}';
-
+	
+TableOnCreation returns Table:
+	{Table}
+	name=EString
+	'{'
+		columns+=ColumnOnCreation ( "," columns+=ColumnOnCreation)*
+	'}';
+	
 Column returns Column:
 	{Column}
-	name=EString (type=[Type|EString])?;
-
-Type returns Type:
-	{Type}
-	name=(('int' | 'INT')| ('double' | 'DOUBLE') | ('float' | 'FLOAT') | ('date' | 'DATE')| EString);
-
-Clause returns Clause:
-	name=(
-			'AND'|'OR'|'WHERE'|'SET'|'HAVING'|'LIMIT'|'OFFSET'|
-			'and'|'or'|'where'|'set'|'having'|'limit'|'offset'
-		)
-	body=ComplexString;
+	name=EString //(type=EString)?
+	//('constaints' '{' constaints+=Constaint ( "," constaints+=Constaint)* '}' )?
+;
+	
+ColumnOnCreation returns Column:
+	{Column}
+	name=EString type=(
+				'int' | 'float' | 'varchar(100)' | 'char(100)' | 'text' | 'date' |
+				'INT' | 'FLOAT' | 'VARCHAR(100)' | 'CHAR(100)' | 'TEXT' | 'DATE'
+	)
+	(constaints+=ConstaintOnCreation)?
+;
 
 Constaint returns Constaint:
 	'CONSTRAINT' body=ComplexString;
+
+ConstaintOnCreation returns Constaint:
+	body=ComplexString;
+	
+Clause returns Clause:
+	name=EString body=ComplexString;
 
 Value returns Value:
 	{Value}
@@ -88,5 +108,9 @@ ColumnValue returns ColumnValue:
 	{ColumnValue} value=EString;
 	
 ComplexString returns ecore::EString:
-	EString(('.')?('*')?('=')?EString)*'()'?
+	EString(('.')?('*')?('=')?('<')?('>')?EString)*('(' EString (',' EString)* ')')?
 ;
+ 
+terminal SL_COMMENT:
+    '--' !('\n'|'\r')* ('\r'? '\n')?;
+	

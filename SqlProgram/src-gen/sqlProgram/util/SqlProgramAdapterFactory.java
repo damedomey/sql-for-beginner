@@ -97,16 +97,6 @@ public class SqlProgramAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseType(Type object) {
-			return createTypeAdapter();
-		}
-
-		@Override
-		public Adapter caseLibrary(Library object) {
-			return createLibraryAdapter();
-		}
-
-		@Override
 		public Adapter caseClause(Clause object) {
 			return createClauseAdapter();
 		}
@@ -144,6 +134,11 @@ public class SqlProgramAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseColumnValue(ColumnValue object) {
 			return createColumnValueAdapter();
+		}
+
+		@Override
+		public Adapter caseQuickSelection(QuickSelection object) {
+			return createQuickSelectionAdapter();
 		}
 
 		@Override
@@ -246,34 +241,6 @@ public class SqlProgramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColumnAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link sqlProgram.Type <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see sqlProgram.Type
-	 * @generated
-	 */
-	public Adapter createTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link sqlProgram.Library <em>Library</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see sqlProgram.Library
-	 * @generated
-	 */
-	public Adapter createLibraryAdapter() {
 		return null;
 	}
 
@@ -386,6 +353,20 @@ public class SqlProgramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColumnValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sqlProgram.QuickSelection <em>Quick Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sqlProgram.QuickSelection
+	 * @generated
+	 */
+	public Adapter createQuickSelectionAdapter() {
 		return null;
 	}
 

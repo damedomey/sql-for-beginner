@@ -64,10 +64,6 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 			return createTable();
 		case SqlProgramPackage.COLUMN:
 			return createColumn();
-		case SqlProgramPackage.TYPE:
-			return createType();
-		case SqlProgramPackage.LIBRARY:
-			return createLibrary();
 		case SqlProgramPackage.CLAUSE:
 			return createClause();
 		case SqlProgramPackage.CREATION:
@@ -84,6 +80,8 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 			return createValue();
 		case SqlProgramPackage.COLUMN_VALUE:
 			return createColumnValue();
+		case SqlProgramPackage.QUICK_SELECTION:
+			return createQuickSelection();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -127,26 +125,6 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 	public Column createColumn() {
 		ColumnImpl column = new ColumnImpl();
 		return column;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type createType() {
-		TypeImpl type = new TypeImpl();
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Library createLibrary() {
-		LibraryImpl library = new LibraryImpl();
-		return library;
 	}
 
 	/**
@@ -227,6 +205,16 @@ public class SqlProgramFactoryImpl extends EFactoryImpl implements SqlProgramFac
 	public ColumnValue createColumnValue() {
 		ColumnValueImpl columnValue = new ColumnValueImpl();
 		return columnValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuickSelection createQuickSelection() {
+		QuickSelectionImpl quickSelection = new QuickSelectionImpl();
+		return quickSelection;
 	}
 
 	/**

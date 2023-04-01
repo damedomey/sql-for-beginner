@@ -2,41 +2,28 @@
 <sqlProgram:SqlProgram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sqlProgram="http://www.example.org/sqlProgram">
   <queries xsi:type="sqlProgram:Creation">
     <objects xsi:type="sqlProgram:Table" name="Person">
-      <columns name="nom">
-        <type href="Library.sqlprogram#//@type.2"/>
+      <columns name="nom" type="">
         <constaints body="not null"/>
       </columns>
-      <columns name="prenom">
-        <type href="Library.sqlprogram#//@type.2"/>
-      </columns>
-      <columns name="age">
-        <type href="Library.sqlprogram#//@type.0"/>
-      </columns>
+      <columns name="prenom" type=""/>
+      <columns name="age" type=""/>
     </objects>
     <constaints body="primary key(nom, prenom)"/>
   </queries>
   <queries xsi:type="sqlProgram:Creation" type="index" name="idx_pnom">
     <objects xsi:type="sqlProgram:Table" name="Person">
-      <columns name="nom">
-        <type href="Library.sqlprogram#//@type.2"/>
-      </columns>
+      <columns name="nom" type=""/>
     </objects>
   </queries>
   <queries xsi:type="sqlProgram:Insertion">
     <objects xsi:type="sqlProgram:Table" name="Person">
-      <columns name="nom">
-        <type href="Library.sqlprogram#//@type.2"/>
-      </columns>
-      <columns name="prenom">
-        <type href="Library.sqlprogram#//@type.2"/>
-      </columns>
-      <columns name="age">
-        <type href="Library.sqlprogram#//@type.0"/>
-      </columns>
+      <columns name="nom" type=""/>
+      <columns name="prenom" type=""/>
+      <columns name="age" type=""/>
     </objects>
     <values>
-      <columnvalues value="firstname"/>
-      <columnvalues value="lastname"/>
+      <columnvalues value="r"/>
+      <columnvalues value="d"/>
       <columnvalues value="81"/>
     </values>
     <values>
@@ -47,15 +34,9 @@
   </queries>
   <queries xsi:type="sqlProgram:Selection">
     <objects xsi:type="sqlProgram:Table" name="Person">
-      <columns name="nom">
-        <type href="Library.sqlprogram#//@type.2"/>
-      </columns>
-      <columns name="prenom">
-        <type href="Library.sqlprogram#//@type.2"/>
-      </columns>
-      <columns name="age">
-        <type href="Library.sqlprogram#//@type.0"/>
-      </columns>
+      <columns name="nom" type=""/>
+      <columns name="prenom" type=""/>
+      <columns name="age" type=""/>
     </objects>
     <clauses name="Where" body="age > 10"/>
     <clauses name="And" body="name = 'david'"/>
@@ -69,5 +50,10 @@
   <queries xsi:type="sqlProgram:Delete">
     <objects xsi:type="sqlProgram:Table" name="Person"/>
     <clauses name="Where" body="name = 'david'"/>
+  </queries>
+  <queries xsi:type="sqlProgram:QuickSelection" method="count">
+    <objects xsi:type="sqlProgram:Table" name="test">
+      <columns name="nom"/>
+    </objects>
   </queries>
 </sqlProgram:SqlProgram>

@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Selection extends Queries {
-
 	/**
 	 * Returns the value of the '<em><b>Clauses</b></em>' containment reference list.
 	 * The list contents are of type {@link sqlProgram.Clause}.
@@ -33,4 +32,5 @@ public interface Selection extends Queries {
 	 * @generated
 	 */
 	EList<Clause> getClauses();
+
 } // Selection

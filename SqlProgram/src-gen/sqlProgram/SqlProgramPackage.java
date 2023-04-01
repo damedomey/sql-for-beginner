@@ -279,22 +279,22 @@ public interface SqlProgramPackage extends EPackage {
 	int COLUMN__NAME = OBJECTS__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMN__TYPE = OBJECTS_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Constaints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN__CONSTAINTS = OBJECTS_FEATURE_COUNT + 1;
+	int COLUMN__CONSTAINTS = OBJECTS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__TYPE = OBJECTS_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Column</em>' class.
@@ -315,80 +315,6 @@ public interface SqlProgramPackage extends EPackage {
 	int COLUMN_OPERATION_COUNT = OBJECTS_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link sqlProgram.impl.TypeImpl <em>Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see sqlProgram.impl.TypeImpl
-	 * @see sqlProgram.impl.SqlProgramPackageImpl#getType()
-	 * @generated
-	 */
-	int TYPE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link sqlProgram.impl.LibraryImpl <em>Library</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see sqlProgram.impl.LibraryImpl
-	 * @see sqlProgram.impl.SqlProgramPackageImpl#getLibrary()
-	 * @generated
-	 */
-	int LIBRARY = 7;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIBRARY__TYPE = 0;
-
-	/**
-	 * The number of structural features of the '<em>Library</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIBRARY_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Library</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIBRARY_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link sqlProgram.impl.ClauseImpl <em>Clause</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,7 +322,7 @@ public interface SqlProgramPackage extends EPackage {
 	 * @see sqlProgram.impl.SqlProgramPackageImpl#getClause()
 	 * @generated
 	 */
-	int CLAUSE = 8;
+	int CLAUSE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -442,7 +368,7 @@ public interface SqlProgramPackage extends EPackage {
 	 * @see sqlProgram.impl.SqlProgramPackageImpl#getCreation()
 	 * @generated
 	 */
-	int CREATION = 9;
+	int CREATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
@@ -506,7 +432,7 @@ public interface SqlProgramPackage extends EPackage {
 	 * @see sqlProgram.impl.SqlProgramPackageImpl#getConstaint()
 	 * @generated
 	 */
-	int CONSTAINT = 10;
+	int CONSTAINT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -543,7 +469,7 @@ public interface SqlProgramPackage extends EPackage {
 	 * @see sqlProgram.impl.SqlProgramPackageImpl#getUpdate()
 	 * @generated
 	 */
-	int UPDATE = 11;
+	int UPDATE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
@@ -589,7 +515,7 @@ public interface SqlProgramPackage extends EPackage {
 	 * @see sqlProgram.impl.SqlProgramPackageImpl#getInsertion()
 	 * @generated
 	 */
-	int INSERTION = 12;
+	int INSERTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
@@ -635,7 +561,7 @@ public interface SqlProgramPackage extends EPackage {
 	 * @see sqlProgram.impl.SqlProgramPackageImpl#getDelete()
 	 * @generated
 	 */
-	int DELETE = 13;
+	int DELETE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
@@ -681,7 +607,7 @@ public interface SqlProgramPackage extends EPackage {
 	 * @see sqlProgram.impl.SqlProgramPackageImpl#getValue()
 	 * @generated
 	 */
-	int VALUE = 14;
+	int VALUE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Columnvalues</b></em>' containment reference list.
@@ -718,7 +644,7 @@ public interface SqlProgramPackage extends EPackage {
 	 * @see sqlProgram.impl.SqlProgramPackageImpl#getColumnValue()
 	 * @generated
 	 */
-	int COLUMN_VALUE = 15;
+	int COLUMN_VALUE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -746,6 +672,61 @@ public interface SqlProgramPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMN_VALUE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link sqlProgram.impl.QuickSelectionImpl <em>Quick Selection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sqlProgram.impl.QuickSelectionImpl
+	 * @see sqlProgram.impl.SqlProgramPackageImpl#getQuickSelection()
+	 * @generated
+	 */
+	int QUICK_SELECTION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUICK_SELECTION__OBJECTS = SELECTION__OBJECTS;
+
+	/**
+	 * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUICK_SELECTION__CLAUSES = SELECTION__CLAUSES;
+
+	/**
+	 * The feature id for the '<em><b>Method</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUICK_SELECTION__METHOD = SELECTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Quick Selection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUICK_SELECTION_FEATURE_COUNT = SELECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Quick Selection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUICK_SELECTION_OPERATION_COUNT = SELECTION_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link sqlProgram.SqlProgram <em>Sql Program</em>}'.
@@ -863,17 +844,6 @@ public interface SqlProgramPackage extends EPackage {
 	EClass getColumn();
 
 	/**
-	 * Returns the meta object for the reference '{@link sqlProgram.Column#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see sqlProgram.Column#getType()
-	 * @see #getColumn()
-	 * @generated
-	 */
-	EReference getColumn_Type();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link sqlProgram.Column#getConstaints <em>Constaints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -885,46 +855,15 @@ public interface SqlProgramPackage extends EPackage {
 	EReference getColumn_Constaints();
 
 	/**
-	 * Returns the meta object for class '{@link sqlProgram.Type <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link sqlProgram.Column#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Type</em>'.
-	 * @see sqlProgram.Type
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see sqlProgram.Column#getType()
+	 * @see #getColumn()
 	 * @generated
 	 */
-	EClass getType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link sqlProgram.Type#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see sqlProgram.Type#getName()
-	 * @see #getType()
-	 * @generated
-	 */
-	EAttribute getType_Name();
-
-	/**
-	 * Returns the meta object for class '{@link sqlProgram.Library <em>Library</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Library</em>'.
-	 * @see sqlProgram.Library
-	 * @generated
-	 */
-	EClass getLibrary();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link sqlProgram.Library#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Type</em>'.
-	 * @see sqlProgram.Library#getType()
-	 * @see #getLibrary()
-	 * @generated
-	 */
-	EReference getLibrary_Type();
+	EAttribute getColumn_Type();
 
 	/**
 	 * Returns the meta object for class '{@link sqlProgram.Clause <em>Clause</em>}'.
@@ -1128,6 +1067,27 @@ public interface SqlProgramPackage extends EPackage {
 	EAttribute getColumnValue_Value();
 
 	/**
+	 * Returns the meta object for class '{@link sqlProgram.QuickSelection <em>Quick Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Quick Selection</em>'.
+	 * @see sqlProgram.QuickSelection
+	 * @generated
+	 */
+	EClass getQuickSelection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sqlProgram.QuickSelection#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Method</em>'.
+	 * @see sqlProgram.QuickSelection#getMethod()
+	 * @see #getQuickSelection()
+	 * @generated
+	 */
+	EAttribute getQuickSelection_Method();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1251,14 +1211,6 @@ public interface SqlProgramPackage extends EPackage {
 		EClass COLUMN = eINSTANCE.getColumn();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COLUMN__TYPE = eINSTANCE.getColumn_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Constaints</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1267,40 +1219,12 @@ public interface SqlProgramPackage extends EPackage {
 		EReference COLUMN__CONSTAINTS = eINSTANCE.getColumn_Constaints();
 
 		/**
-		 * The meta object literal for the '{@link sqlProgram.impl.TypeImpl <em>Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see sqlProgram.impl.TypeImpl
-		 * @see sqlProgram.impl.SqlProgramPackageImpl#getType()
-		 * @generated
-		 */
-		EClass TYPE = eINSTANCE.getType();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TYPE__NAME = eINSTANCE.getType_Name();
-
-		/**
-		 * The meta object literal for the '{@link sqlProgram.impl.LibraryImpl <em>Library</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see sqlProgram.impl.LibraryImpl
-		 * @see sqlProgram.impl.SqlProgramPackageImpl#getLibrary()
-		 * @generated
-		 */
-		EClass LIBRARY = eINSTANCE.getLibrary();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LIBRARY__TYPE = eINSTANCE.getLibrary_Type();
+		EAttribute COLUMN__TYPE = eINSTANCE.getColumn_Type();
 
 		/**
 		 * The meta object literal for the '{@link sqlProgram.impl.ClauseImpl <em>Clause</em>}' class.
@@ -1469,6 +1393,24 @@ public interface SqlProgramPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMN_VALUE__VALUE = eINSTANCE.getColumnValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link sqlProgram.impl.QuickSelectionImpl <em>Quick Selection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sqlProgram.impl.QuickSelectionImpl
+		 * @see sqlProgram.impl.SqlProgramPackageImpl#getQuickSelection()
+		 * @generated
+		 */
+		EClass QUICK_SELECTION = eINSTANCE.getQuickSelection();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUICK_SELECTION__METHOD = eINSTANCE.getQuickSelection_Method();
 
 	}
 

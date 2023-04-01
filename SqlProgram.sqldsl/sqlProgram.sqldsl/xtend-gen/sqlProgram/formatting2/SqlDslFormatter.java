@@ -14,7 +14,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import sqlProgram.Clause;
 import sqlProgram.Objects;
 import sqlProgram.Queries;
-import sqlProgram.Selection;
+import sqlProgram.QuickSelection;
 import sqlProgram.SqlProgram;
 import sqlProgram.services.SqlDslGrammarAccess;
 
@@ -31,39 +31,39 @@ public class SqlDslFormatter extends AbstractFormatter2 {
     }
   }
 
-  protected void _format(final Selection selection, @Extension final IFormattableDocument document) {
-    EList<Objects> _objects = selection.getObjects();
+  protected void _format(final QuickSelection quickSelection, @Extension final IFormattableDocument document) {
+    EList<Objects> _objects = quickSelection.getObjects();
     for (final Objects objects : _objects) {
       document.<Objects>format(objects);
     }
-    EList<Clause> _clauses = selection.getClauses();
+    EList<Clause> _clauses = quickSelection.getClauses();
     for (final Clause clause : _clauses) {
       document.<Clause>format(clause);
     }
   }
 
-  public void format(final Object selection, final IFormattableDocument document) {
-    if (selection instanceof XtextResource) {
-      _format((XtextResource)selection, document);
+  public void format(final Object quickSelection, final IFormattableDocument document) {
+    if (quickSelection instanceof XtextResource) {
+      _format((XtextResource)quickSelection, document);
       return;
-    } else if (selection instanceof Selection) {
-      _format((Selection)selection, document);
+    } else if (quickSelection instanceof QuickSelection) {
+      _format((QuickSelection)quickSelection, document);
       return;
-    } else if (selection instanceof SqlProgram) {
-      _format((SqlProgram)selection, document);
+    } else if (quickSelection instanceof SqlProgram) {
+      _format((SqlProgram)quickSelection, document);
       return;
-    } else if (selection instanceof EObject) {
-      _format((EObject)selection, document);
+    } else if (quickSelection instanceof EObject) {
+      _format((EObject)quickSelection, document);
       return;
-    } else if (selection == null) {
+    } else if (quickSelection == null) {
       _format((Void)null, document);
       return;
-    } else if (selection != null) {
-      _format(selection, document);
+    } else if (quickSelection != null) {
+      _format(quickSelection, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(selection, document).toString());
+        Arrays.<Object>asList(quickSelection, document).toString());
     }
   }
 }

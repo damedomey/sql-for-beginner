@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Table extends Objects {
-
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
 	 * The list contents are of type {@link sqlProgram.Column}.
@@ -33,4 +32,5 @@ public interface Table extends Objects {
 	 * @generated
 	 */
 	EList<Column> getColumns();
+
 } // Table
