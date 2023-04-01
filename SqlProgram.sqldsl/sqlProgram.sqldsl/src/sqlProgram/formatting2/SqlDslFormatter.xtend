@@ -6,7 +6,7 @@ package sqlProgram.formatting2
 import com.google.inject.Inject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import sqlProgram.Selection
+import sqlProgram.QuickSelection
 import sqlProgram.SqlProgram
 import sqlProgram.services.SqlDslGrammarAccess
 
@@ -21,15 +21,15 @@ class SqlDslFormatter extends AbstractFormatter2 {
 		}
 	}
 
-	def dispatch void format(Selection selection, extension IFormattableDocument document) {
+	def dispatch void format(QuickSelection quickSelection, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (objects : selection.objects) {
+		for (objects : quickSelection.objects) {
 			objects.format
 		}
-		for (clause : selection.clauses) {
+		for (clause : quickSelection.clauses) {
 			clause.format
 		}
 	}
 	
-	// TODO: implement for Creation, Update, Insertion, Delete, Table, Value
+	// TODO: implement for Selection, Creation, Update, Insertion, Delete, Table, Column, Value
 }

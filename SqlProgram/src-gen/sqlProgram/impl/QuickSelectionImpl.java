@@ -3,53 +3,54 @@
 package sqlProgram.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import sqlProgram.QuickSelection;
 import sqlProgram.SqlProgramPackage;
-import sqlProgram.Type;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Type</b></em>'.
+ * An implementation of the model object '<em><b>Quick Selection</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sqlProgram.impl.TypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sqlProgram.impl.QuickSelectionImpl#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
+public class QuickSelectionImpl extends SelectionImpl implements QuickSelection {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getMethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String METHOD_EDEFAULT = null;
+
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getMethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected String method = METHOD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TypeImpl() {
+	protected QuickSelectionImpl() {
 		super();
 	}
 
@@ -60,7 +61,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SqlProgramPackage.Literals.TYPE;
+		return SqlProgramPackage.Literals.QUICK_SELECTION;
 	}
 
 	/**
@@ -68,8 +69,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public String getMethod() {
+		return method;
 	}
 
 	/**
@@ -77,11 +78,12 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setMethod(String newMethod) {
+		String oldMethod = method;
+		method = newMethod;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SqlProgramPackage.TYPE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, SqlProgramPackage.QUICK_SELECTION__METHOD, oldMethod,
+					method));
 	}
 
 	/**
@@ -92,8 +94,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SqlProgramPackage.TYPE__NAME:
-			return getName();
+		case SqlProgramPackage.QUICK_SELECTION__METHOD:
+			return getMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,8 +108,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SqlProgramPackage.TYPE__NAME:
-			setName((String) newValue);
+		case SqlProgramPackage.QUICK_SELECTION__METHOD:
+			setMethod((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -121,8 +123,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SqlProgramPackage.TYPE__NAME:
-			setName(NAME_EDEFAULT);
+		case SqlProgramPackage.QUICK_SELECTION__METHOD:
+			setMethod(METHOD_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -136,8 +138,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SqlProgramPackage.TYPE__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case SqlProgramPackage.QUICK_SELECTION__METHOD:
+			return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -153,10 +155,10 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (method: ");
+		result.append(method);
 		result.append(')');
 		return result.toString();
 	}
 
-} //TypeImpl
+} //QuickSelectionImpl

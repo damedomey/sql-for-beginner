@@ -1,11 +1,29 @@
-CREATE TABLE Person {
-	id, nom, prenom
+-- hello this is a comment
+CREATE TABLE Person{
+	nom char(100) not null,
+	prenom varchar(100) not null,
+	age int
+} CONSTRAINT primary key(nom, prenom);
+
+CREATE INDEX idx ON Person{
+	nom
 };
 
-SELECT FROM 
-Person{
+INSERT INTO Person {
 	nom, prenom
-}, Test {
-	test
-}
-WHERE Person.id = Test.id;
+} VALUES {
+	Value('AMEDOMEY', 'Romeo'),
+	Value('USER', 'name')
+};
+
+SELECT FROM Person {
+	nom, prenom
+} where nom = 'david';
+
+COUNT FROM Person {
+	nom, prenom
+} where nom = 'david';
+
+SUM FROM Person {
+	age
+};

@@ -3,6 +3,7 @@
 package sqlProgram.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -34,6 +35,7 @@ public class ConstaintImpl extends MinimalEObjectImpl.Container implements Const
 	 * @ordered
 	 */
 	protected static final String BODY_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
 	 * <!-- begin-user-doc -->

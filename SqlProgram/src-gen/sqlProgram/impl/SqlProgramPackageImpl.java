@@ -16,15 +16,14 @@ import sqlProgram.Constaint;
 import sqlProgram.Creation;
 import sqlProgram.Delete;
 import sqlProgram.Insertion;
-import sqlProgram.Library;
 import sqlProgram.Objects;
 import sqlProgram.Queries;
+import sqlProgram.QuickSelection;
 import sqlProgram.Selection;
 import sqlProgram.SqlProgram;
 import sqlProgram.SqlProgramFactory;
 import sqlProgram.SqlProgramPackage;
 import sqlProgram.Table;
-import sqlProgram.Type;
 import sqlProgram.Update;
 import sqlProgram.Value;
 
@@ -82,20 +81,6 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass typeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass libraryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass clauseEClass = null;
 
 	/**
@@ -146,6 +131,13 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * @generated
 	 */
 	private EClass columnValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass quickSelectionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -315,7 +307,7 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getColumn_Type() {
+	public EReference getColumn_Constaints() {
 		return (EReference) columnEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -324,44 +316,8 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getColumn_Constaints() {
-		return (EReference) columnEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getType() {
-		return typeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getType_Name() {
-		return (EAttribute) typeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLibrary() {
-		return libraryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLibrary_Type() {
-		return (EReference) libraryEClass.getEStructuralFeatures().get(0);
+	public EAttribute getColumn_Type() {
+		return (EAttribute) columnEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -540,6 +496,24 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getQuickSelection() {
+		return quickSelectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuickSelection_Method() {
+		return (EAttribute) quickSelectionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SqlProgramFactory getSqlProgramFactory() {
 		return (SqlProgramFactory) getEFactoryInstance();
 	}
@@ -580,14 +554,8 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		createEReference(tableEClass, TABLE__COLUMNS);
 
 		columnEClass = createEClass(COLUMN);
-		createEReference(columnEClass, COLUMN__TYPE);
 		createEReference(columnEClass, COLUMN__CONSTAINTS);
-
-		typeEClass = createEClass(TYPE);
-		createEAttribute(typeEClass, TYPE__NAME);
-
-		libraryEClass = createEClass(LIBRARY);
-		createEReference(libraryEClass, LIBRARY__TYPE);
+		createEAttribute(columnEClass, COLUMN__TYPE);
 
 		clauseEClass = createEClass(CLAUSE);
 		createEAttribute(clauseEClass, CLAUSE__NAME);
@@ -615,6 +583,9 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 
 		columnValueEClass = createEClass(COLUMN_VALUE);
 		createEAttribute(columnValueEClass, COLUMN_VALUE__VALUE);
+
+		quickSelectionEClass = createEClass(QUICK_SELECTION);
+		createEAttribute(quickSelectionEClass, QUICK_SELECTION__METHOD);
 	}
 
 	/**
@@ -653,6 +624,7 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 		updateEClass.getESuperTypes().add(this.getQueries());
 		insertionEClass.getESuperTypes().add(this.getQueries());
 		deleteEClass.getESuperTypes().add(this.getQueries());
+		quickSelectionEClass.getESuperTypes().add(this.getSelection());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sqlProgramEClass, SqlProgram.class, "SqlProgram", !IS_ABSTRACT, !IS_INTERFACE,
@@ -682,21 +654,11 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 				IS_ORDERED);
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getColumn_Type(), this.getType(), null, "type", null, 0, 1, Column.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEReference(getColumn_Constaints(), this.getConstaint(), null, "constaints", null, 0, -1, Column.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 1, 1, Type.class, !IS_TRANSIENT,
+		initEAttribute(getColumn_Type(), ecorePackage.getEString(), "type", null, 0, 1, Column.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLibrary_Type(), this.getType(), null, "type", null, 0, -1, Library.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 
 		initEClass(clauseEClass, Clause.class, "Clause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClause_Name(), ecorePackage.getEString(), "name", null, 1, 1, Clause.class, !IS_TRANSIENT,
@@ -744,6 +706,12 @@ public class SqlProgramPackageImpl extends EPackageImpl implements SqlProgramPac
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumnValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, ColumnValue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(quickSelectionEClass, QuickSelection.class, "QuickSelection", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getQuickSelection_Method(), ecorePackage.getEString(), "method", null, 1, 1,
+				QuickSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
